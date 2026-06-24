@@ -1,51 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>1 Year Friendship 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>1 Year Friendship Adventure 💖</title>
+
 <style>
 body{
-font-family:Arial,sans-serif;
-text-align:center;
-background:#ffe6f2;
-padding:30px;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(to bottom, #ffd6e7, #fff5fa);
+    margin:0;
+    padding:20px;
 }
-.box{
-background:white;
-padding:20px;
-border-radius:15px;
-max-width:500px;
-margin:auto;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+h1{
+    color:#ff4f8b;
 }
-button{
-padding:10px 20px;
-font-size:18px;
-border:none;
-border-radius:10px;
-background:pink;
-cursor:pointer;
+
+.game-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+}
+
+.memory{
+    display:inline-block;
+    width:80px;
+    height:80px;
+    margin:15px;
+    line-height:80px;
+    font-size:35px;
+    cursor:pointer;
+    border-radius:50%;
+    background:#ffe4ef;
+    transition:0.3s;
+}
+
+.memory:hover{
+    transform:scale(1.1);
+}
+
+#message{
+    margin-top:20px;
+    font-size:20px;
+    color:#444;
+}
+
+#finalBtn{
+    display:none;
+    margin-top:20px;
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#ff4f8b;
+    color:white;
+    cursor:pointer;
+}
+
+#finalMessage{
+    display:none;
+    margin-top:25px;
+    font-size:22px;
+    color:#ff2d75;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-<h1>🎉 Happy 1 Year! 🎉</h1>
+<div class="game-box">
 
-<p id="message">
-Click the button to reveal a surprise ❤️
+<h1>💖 1 Year Friendship Memory Hunt 💖</h1>
+
+<p>
+Find all 3 hidden memories to unlock the final surprise!
 </p>
 
-<button onclick="showSurprise()">
-Open Surprise
+<div class="memory" onclick="findMemory(1)">🎁</div>
+<div class="memory" onclick="findMemory(2)">🌸</div>
+<div class="memory" onclick="findMemory(3)">⭐</div>
+
+<div id="message">
+Click a memory to begin...
+</div>
+
+<button id="finalBtn" onclick="showFinal()">
+Unlock Final Surprise 💕
 </button>
+
+<div id="finalMessage">
+🌷 Happy 1 Year Friendship Anniversary! 🌷<br><br>
+shank you for every laugh, every memory, and every moment.
+I'm really grateful to have you in my life. melly pallyyy shaalyy nooneww💋💋🫂💗 💖<br><br>
+Here's to many more amazing memories together! ✨
+</div>
+
 </div>
 
 <script>
-function showSurprise(){
+let found = 0;
+let opened = [];
+
+function findMemory(num){
+
+if(opened.includes(num)){
+return;
+}
+
+opened.push(num);
+found++;
+
+if(num === 1){
 document.getElementById("message").innerHTML =
-"💖 365 days, countless memories, and many more to come! Thank you for being such an amazing friend. Happy Anniversary! 💖";
+"🎁 Memory #1: One of my favorite moments was talking with you for hours.";
+}
+
+if(num === 2){
+document.getElementById("message").innerHTML =
+"🌸 Memory #2: Thank you for always making ordinary days feel special.";
+}
+
+if(num === 3){
+document.getElementById("message").innerHTML =
+"⭐ Memory #3: Every friendship needs a star, and you're one of mine.";
+}
+
+if(found === 3){
+document.getElementById("finalBtn").style.display = "inline-block";
+document.getElementById("message").innerHTML =
+"🎉 You found all the memories! Unlock the final surprise!";
+}
+}
+
+function showFinal(){
+document.getElementById("finalMessage").style.display = "block";
 }
 </script>
 
