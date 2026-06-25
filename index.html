@@ -2,104 +2,63 @@
 <html>
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Honeyy Adventure 💘</title>
+<title>Honeyy Adventure 💖</title>
 
 <style>
 
 body{
 font-family:Arial,sans-serif;
 text-align:center;
-background:linear-gradient(180deg,#ffd6ea,#fff7fb);
 margin:0;
 padding:20px;
-overflow-x:hidden;
+background:linear-gradient(180deg,#ffe6f2,#fff8fc);
+color:#7a4160;
 }
 
-h1,h2{
-color:#ff4f8b;
-}
 
 .box{
 max-width:850px;
 margin:auto;
-background:white;
+background:#fff;
 padding:25px;
-border-radius:25px;
-box-shadow:0 0 20px rgba(0,0,0,.12);
+border-radius:30px;
+box-shadow:0 0 25px #f5bfd8;
 }
 
 
-/* animations */
-
-h1{
-animation:slideDown 1s ease;
+h1,h2{
+color:#e98bb5;
 }
 
-.card{
-animation:fadeIn 1.5s ease;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
 
 button{
-background:#ff4f8b;
+background:#f3a6c8;
 color:white;
 border:none;
 padding:12px 20px;
-border-radius:20px;
+border-radius:25px;
 cursor:pointer;
 transition:.3s;
 }
 
+
 button:hover{
 transform:scale(1.1);
+background:#ef91ba;
 }
 
 
-@keyframes slideDown{
-from{
-transform:translateY(-50px);
-opacity:0;
-}
-to{
-transform:translateY(0);
-opacity:1;
-}
-}
-
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:scale(.8);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-
-.heart{
-position:fixed;
-font-size:25px;
-animation:float 8s linear infinite;
-}
-
-
-@keyframes float{
-from{
-transform:translateY(100vh);
-}
-to{
-transform:translateY(-100px);
-}
+.card{
+background:#fff0f7;
+padding:20px;
+width:200px;
+border-radius:20px;
+box-shadow:0 0 15px #f8d5e6;
+animation:fade 1.5s;
 }
 
 
@@ -111,30 +70,62 @@ flex-wrap:wrap;
 }
 
 
-.card{
-background:#ffe4ef;
-padding:20px;
-width:200px;
-border-radius:20px;
+@keyframes fade{
+
+from{
+opacity:0;
+transform:scale(.8);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
 }
 
 
 .memory{
+
 display:inline-block;
 width:80px;
 height:80px;
 line-height:80px;
 font-size:35px;
-background:#ffe4ef;
+background:#ffe0ef;
 border-radius:50%;
 margin:10px;
 cursor:pointer;
+
+}
+
+
+.heart{
+
+position:fixed;
+font-size:25px;
+animation:float 8s linear infinite;
+
+}
+
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+}
+
+to{
+transform:translateY(-100px);
+}
+
 }
 
 
 .hidden{
 display:none;
 }
+
 
 </style>
 
@@ -144,18 +135,17 @@ display:none;
 <body>
 
 
-<div class="heart" style="left:10%">💖</div>
+<div class="heart" style="left:10%">💗</div>
 <div class="heart" style="left:30%">🎀</div>
-<div class="heart" style="left:50%">💘</div>
-<div class="heart" style="left:70%">🌸</div>
-<div class="heart" style="left:90%">⭐</div>
-
+<div class="heart" style="left:50%">🌸</div>
+<div class="heart" style="left:70%">💖</div>
 
 
 <div class="box">
 
 
-<h1>💖 Honeyy Adventure 💖</h1>
+<h1>🎀 Honeyy Adventure 💖</h1>
+
 
 
 <section>
@@ -163,7 +153,7 @@ display:none;
 <h2>About My Website 🌸</h2>
 
 <p>
-My cute little website made with HTML and CSS ✨
+My cute little website made with love and HTML/CSS ✨
 </p>
 
 
@@ -181,26 +171,26 @@ Click Me 💗
 
 <div class="cards">
 
+
 <div class="card">
 <h3>Design 🎨</h3>
-<p>Beautiful cute designs.</p>
+<p>Cute designs.</p>
 </div>
 
 
 <div class="card">
 <h3>Learning 📚</h3>
-<p>Improving coding skills.</p>
+<p>Learning coding.</p>
 </div>
 
 
 <div class="card">
 <h3>Projects 💻</h3>
-<p>Making more websites.</p>
+<p>Building websites.</p>
 </div>
 
 
 </div>
-
 
 
 
@@ -208,18 +198,13 @@ Click Me 💗
 
 <h2>🎁 Memory Hunt</h2>
 
-<p>Find memories 🥺</p>
-
-
 <div class="memory" onclick="memory(1)">🎁</div>
-
 <div class="memory" onclick="memory(2)">🌸</div>
-
 <div class="memory" onclick="memory(3)">⭐</div>
 
 
 <p id="memoryText">
-Click a memory...
+Click a memory 🥺
 </p>
 
 
@@ -232,10 +217,11 @@ Click a memory...
 Stranger 😭 <br>
 Friend 🫂 <br>
 Bestie 🎀 <br>
-Jawnnn 💘
+Jawnnn 💖
 </p>
 
 </section>
+
 
 
 
@@ -245,13 +231,17 @@ Jawnnn 💘
 
 <input id="pass" placeholder="Enter password">
 
+
 <button onclick="unlock()">
-Unlock 💖
+Unlock 💗
 </button>
+
 
 <p id="passMsg"></p>
 
+
 </section>
+
 
 
 
@@ -260,17 +250,21 @@ Unlock 💖
 
 <h2>🍼 Find Mellaw Babyhhh</h2>
 
-<div class="memory" onclick="baby(1)">🌸</div>
-<div class="memory" onclick="baby(2)">⭐</div>
-<div class="memory" onclick="baby(3)">🍼</div>
-<div class="memory" onclick="baby(4)">🎀</div>
-<div class="memory" onclick="baby(5)">💘</div>
+
+<div class="memory" onclick="baby()">🌸</div>
+<div class="memory" onclick="baby()">⭐</div>
+<div class="memory" onclick="baby()">🍼</div>
+<div class="memory" onclick="baby()">🎀</div>
+<div class="memory" onclick="baby()">💘</div>
+
 
 <p id="babyMsg">
 Find Mellaw 🥺
 </p>
 
+
 </section>
+
 
 
 
@@ -279,9 +273,13 @@ Find Mellaw 🥺
 
 <h2>♾️ How Much Do You Love Mellaw?</h2>
 
+
 <button onclick="love(10)">10%</button>
+
 <button onclick="love(50)">50%</button>
+
 <button onclick="love(100)">100%</button>
+
 <button onclick="love(999)">Infinity ♾️</button>
 
 
@@ -293,26 +291,67 @@ Find Mellaw 🥺
 
 
 
+
 <section>
 
 <h2>💌 My Special Message 💌</h2>
+
 
 <p style="white-space:pre-line;">
 
 
 🎀💋🥺 Melliwww Pyaaallliw Jawnnn! 🫠🥺💋🎀
 
-My cute little message is coming here 💗✨
+Yeh mehhh ounnn jarriwww! 🫠💗
 
-(Your full message will be placed in Part 3)
+Awptiii manooo!! Shotttiw shii mehnttt 😭🫂
+
+Mujhhhyyy klnaaa nhi ataaa tha plll sheeekh gaiunnn 🫠💗
+
+
+Ummmm nmmm melllyyyy noonewww 🫠🎀💋
+
+Mellllyyhhh gulluwwwww! 💗
+
+Mellliwww jawwwwnnn! 🎀
+
+Melllyhhh gudddyhhh! 🍼💘
+
+
+Awwpkyyy annyyy shyyy melliwww zindagiii bowhttt pyariii olll color fulll ho gyi hhh 🌈🎀
+
+
+TMHARYYY ANYYY SHY PEHLYYY TO DOSHTTT,
+MEH KUSHHH V NHI THIII 😭
+
+ABB MEH SHBB KUSHH HUNN 🫠🎀
+
+
+MELLAWWW AIK BABYH HHH 🍼💋
+
+
+OLL WOH MELLAW AIKK DOSHT B HHH 🫂💗
+
+
+🎀✨ HAPPY 1 YEAR WITH EACH OTHER ✨🎀
+
+🌷 (26 JUNE 2025) 🌷
+
+
+MEH WADDA KRTIUN HAMESHA SAATH RAHUNGIII 💗
+
+
+********* HMESHA APP K SAAATH RAHUNGIII *********
+
+
+“ L O V E  Y O U H  J A W W W N N !! ”
+
+💋💗🌙
 
 
 </p>
 
 </section>
-
-
-</div>
 <script>
 
 
@@ -325,34 +364,41 @@ document.getElementById("message").innerHTML =
 
 
 
-function memory(num){
+function memory(number){
 
 let text = document.getElementById("memoryText");
 
 
-if(num==1){
-text.innerHTML="A cute memory appeared 🎁💗";
+if(number==1){
+
+text.innerHTML="🎁 A cute memory found 💗";
+
 }
 
-else if(num==2){
-text.innerHTML="A flower memory 🌸✨";
+else if(number==2){
+
+text.innerHTML="🌸 A flower memory found ✨";
+
 }
 
 else{
-text.innerHTML="A shining star memory ⭐";
+
+text.innerHTML="⭐ A star memory found 💖";
+
 }
 
 }
+
 
 
 
 function unlock(){
 
-let password =
+let pass =
 document.getElementById("pass").value;
 
 
-if(password=="mellaw"){
+if(pass=="nooniw"){
 
 document.getElementById("passMsg").innerHTML =
 "Unlocked 💖🥺";
@@ -362,7 +408,7 @@ document.getElementById("passMsg").innerHTML =
 else{
 
 document.getElementById("passMsg").innerHTML =
-"Try again 🫠💗";
+"Wrong password 🫠";
 
 }
 
@@ -371,19 +417,21 @@ document.getElementById("passMsg").innerHTML =
 
 
 
-function baby(num){
+function baby(){
 
 document.getElementById("babyMsg").innerHTML =
-"Found Mellaw Babyhhh 🍼💘✨";
+"Found Mellaw Babyhhh 🍼💘";
 
 }
 
 
 
 
-function love(num){
 
-if(num==999){
+function love(number){
+
+
+if(number==999){
 
 document.getElementById("loveMsg").innerHTML =
 "Infinity love ♾️💖";
@@ -393,7 +441,7 @@ document.getElementById("loveMsg").innerHTML =
 else{
 
 document.getElementById("loveMsg").innerHTML =
-num+"% love 💗";
+number+"% love 💗";
 
 }
 
