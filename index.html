@@ -23,7 +23,7 @@ color:#ff4f8b;
 }
 
 .box{
-max-width:800px;
+max-width:850px;
 margin:auto;
 background:white;
 padding:25px;
@@ -32,23 +32,20 @@ box-shadow:0 0 20px rgba(0,0,0,.12);
 }
 
 
-/* PART 4 ANIMATIONS */
+/* animations */
 
 h1{
 animation:slideDown 1s ease;
 }
 
-
 .card{
-transition:.3s;
 animation:fadeIn 1.5s ease;
+transition:.3s;
 }
-
 
 .card:hover{
 transform:translateY(-10px);
 }
-
 
 button{
 background:#ff4f8b;
@@ -57,48 +54,37 @@ border:none;
 padding:12px 20px;
 border-radius:20px;
 cursor:pointer;
-font-size:16px;
 transition:.3s;
 }
 
-
 button:hover{
 transform:scale(1.1);
-background:#ff2f75;
 }
 
 
 @keyframes slideDown{
-
 from{
 transform:translateY(-50px);
 opacity:0;
 }
-
 to{
 transform:translateY(0);
 opacity:1;
 }
-
 }
 
 
 @keyframes fadeIn{
-
 from{
 opacity:0;
 transform:scale(.8);
 }
-
 to{
 opacity:1;
 transform:scale(1);
 }
-
 }
 
-
-/* Floating hearts */
 
 .heart{
 position:fixed;
@@ -106,16 +92,14 @@ font-size:25px;
 animation:float 8s linear infinite;
 }
 
-@keyframes float{
 
+@keyframes float{
 from{
 transform:translateY(100vh);
 }
-
 to{
 transform:translateY(-100px);
 }
-
 }
 
 
@@ -128,18 +112,14 @@ flex-wrap:wrap;
 
 
 .card{
-
 background:#ffe4ef;
 padding:20px;
 width:200px;
 border-radius:20px;
-box-shadow:0 0 10px #aaa;
-
 }
 
 
 .memory{
-
 display:inline-block;
 width:80px;
 height:80px;
@@ -149,7 +129,6 @@ background:#ffe4ef;
 border-radius:50%;
 margin:10px;
 cursor:pointer;
-
 }
 
 
@@ -157,17 +136,9 @@ cursor:pointer;
 display:none;
 }
 
-
-input{
-padding:10px;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
 </style>
 
 </head>
-
 
 
 <body>
@@ -187,12 +158,12 @@ border:1px solid #ccc;
 <h1>💖 Honeyy Adventure 💖</h1>
 
 
-<section class="about">
+<section>
 
 <h2>About My Website 🌸</h2>
 
 <p>
-This is my website. I am learning HTML and CSS and creating cute projects ✨
+My cute little website made with HTML and CSS ✨
 </p>
 
 
@@ -208,47 +179,27 @@ Click Me 💗
 
 
 
-
 <div class="cards">
 
-
 <div class="card">
-
 <h3>Design 🎨</h3>
-
-<p>
-I create simple and beautiful designs.
-</p>
-
+<p>Beautiful cute designs.</p>
 </div>
 
 
-
 <div class="card">
-
 <h3>Learning 📚</h3>
-
-<p>
-I am improving my coding skills.
-</p>
-
+<p>Improving coding skills.</p>
 </div>
-
 
 
 <div class="card">
-
 <h3>Projects 💻</h3>
-
-<p>
-I will build more websites.
-</p>
-
+<p>Making more websites.</p>
 </div>
 
 
 </div>
-
 
 
 
@@ -273,33 +224,95 @@ Click a memory...
 
 
 </section>
+<section>
+
+<h2>💋 What Am I To You?</h2>
+
+<p>
+Stranger 😭 <br>
+Friend 🫂 <br>
+Bestie 🎀 <br>
+Jawnnn 💘
+</p>
+
+</section>
 
 
+
+<section>
+
+<h2>🔐 Secret Password</h2>
+
+<input id="pass" placeholder="Enter password">
+
+<button onclick="unlock()">
+Unlock 💖
+</button>
+
+<p id="passMsg"></p>
+
+</section>
 
 
 
 
 <section>
 
-<h2>💌 A Little Message</h2>
+<h2>🍼 Find Mellaw Babyhhh</h2>
 
-<p>
+<div class="memory" onclick="baby(1)">🌸</div>
+<div class="memory" onclick="baby(2)">⭐</div>
+<div class="memory" onclick="baby(3)">🍼</div>
+<div class="memory" onclick="baby(4)">🎀</div>
+<div class="memory" onclick="baby(5)">💘</div>
 
-You are special and this little website is made with love 💖  
-Keep learning, keep growing, and keep smiling 🌸✨
-
+<p id="babyMsg">
+Find Mellaw 🥺
 </p>
+
+</section>
+
+
+
+
+<section>
+
+<h2>♾️ How Much Do You Love Mellaw?</h2>
+
+<button onclick="love(10)">10%</button>
+<button onclick="love(50)">50%</button>
+<button onclick="love(100)">100%</button>
+<button onclick="love(999)">Infinity ♾️</button>
+
+
+<p id="loveMsg"></p>
 
 
 </section>
 
 
 
+
+<section>
+
+<h2>💌 My Special Message 💌</h2>
+
+<p style="white-space:pre-line;">
+
+
+🎀💋🥺 Melliwww Pyaaallliw Jawnnn! 🫠🥺💋🎀
+
+My cute little message is coming here 💗✨
+
+(Your full message will be placed in Part 3)
+
+
+</p>
+
+</section>
+
+
 </div>
-
-
-
-
 <script>
 
 
@@ -312,36 +325,84 @@ document.getElementById("message").innerHTML =
 
 
 
-function memory(number){
-
+function memory(num){
 
 let text = document.getElementById("memoryText");
 
 
-if(number==1){
+if(num==1){
+text.innerHTML="A cute memory appeared 🎁💗";
+}
 
-text.innerHTML="A beautiful memory appeared 🎁💗";
+else if(num==2){
+text.innerHTML="A flower memory 🌸✨";
+}
+
+else{
+text.innerHTML="A shining star memory ⭐";
+}
 
 }
 
-else if(number==2){
 
-text.innerHTML="A sweet flower memory 🌸";
+
+function unlock(){
+
+let password =
+document.getElementById("pass").value;
+
+
+if(password=="mellaw"){
+
+document.getElementById("passMsg").innerHTML =
+"Unlocked 💖🥺";
 
 }
 
 else{
 
-text.innerHTML="A shining star memory ⭐";
+document.getElementById("passMsg").innerHTML =
+"Try again 🫠💗";
+
+}
 
 }
 
 
+
+
+function baby(num){
+
+document.getElementById("babyMsg").innerHTML =
+"Found Mellaw Babyhhh 🍼💘✨";
+
 }
 
+
+
+
+function love(num){
+
+if(num==999){
+
+document.getElementById("loveMsg").innerHTML =
+"Infinity love ♾️💖";
+
+}
+
+else{
+
+document.getElementById("loveMsg").innerHTML =
+num+"% love 💗";
+
+}
+
+}
 
 
 </script>
 
+
+</body>
 
 </html>
