@@ -1,54 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honeyy Adventure 💘</title>/* Part 4: Animations */
 
-header {
-    animation: slideDown 1s ease;
-}
+<title>Honeyy Adventure 💘</title>
 
-.card {
-    transition: 0.3s;
-    animation: fadeIn 1.5s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-button {
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.1);
-    background: #555;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
 <style>
+
 body{
 font-family:Arial,sans-serif;
 text-align:center;
@@ -57,9 +17,11 @@ margin:0;
 padding:20px;
 overflow-x:hidden;
 }
+
 h1,h2{
 color:#ff4f8b;
 }
+
 .box{
 max-width:800px;
 margin:auto;
@@ -68,14 +30,116 @@ padding:25px;
 border-radius:25px;
 box-shadow:0 0 20px rgba(0,0,0,.12);
 }
-<button onclick="showMessage()">Click Me</button>
 
-<p id="message"></p>
+
+/* PART 4 ANIMATIONS */
+
+h1{
+animation:slideDown 1s ease;
+}
+
+
+.card{
+transition:.3s;
+animation:fadeIn 1.5s ease;
+}
+
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+
+button{
+background:#ff4f8b;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:20px;
 cursor:pointer;
 font-size:16px;
-margin:8px;
+transition:.3s;
 }
+
+
+button:hover{
+transform:scale(1.1);
+background:#ff2f75;
+}
+
+
+@keyframes slideDown{
+
+from{
+transform:translateY(-50px);
+opacity:0;
+}
+
+to{
+transform:translateY(0);
+opacity:1;
+}
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:scale(.8);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+
+/* Floating hearts */
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+}
+
+to{
+transform:translateY(-100px);
+}
+
+}
+
+
+.cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+
+.card{
+
+background:#ffe4ef;
+padding:20px;
+width:200px;
+border-radius:20px;
+box-shadow:0 0 10px #aaa;
+
+}
+
+
 .memory{
+
 display:inline-block;
 width:80px;
 height:80px;
@@ -85,141 +149,199 @@ background:#ffe4ef;
 border-radius:50%;
 margin:10px;
 cursor:pointer;
+
 }
+
+
 .hidden{
 display:none;
 }
+
+
 input{
 padding:10px;
 border-radius:10px;
 border:1px solid #ccc;
-font-size:16px;
 }
-.hearts{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-pointer-events:none;
-}
-.heart{
-position:absolute;
-font-size:20px;
-animation:float 8s linear infinite;
-}
-@keyframes float{
-from{transform:translateY(100vh);}
-to{transform:translateY(-100px);}
-}
+
 </style>
+
 </head>
+
+
+
 <body>
-<div class="hearts">
+
+
 <div class="heart" style="left:10%">💖</div>
 <div class="heart" style="left:30%">🎀</div>
 <div class="heart" style="left:50%">💘</div>
 <div class="heart" style="left:70%">🌸</div>
-<div class="heart" style="left:90%">🫠</div>
-</div>
+<div class="heart" style="left:90%">⭐</div>
+
+
+
 <div class="box">
+
+
 <h1>💖 Honeyy Adventure 💖</h1>
-<div id="memoryGame">
-<h2>🎁 Memory Hunt</h2>
-<p>Find all 3 memories 🥺</p>
-<div class="memory" onclick="memory(1)">🎁</div>
-<div class="memory" onclick="memory(2)">🌸</div>
-<div class="memory" onclick="memory(3)">⭐</div>
-<p id="memoryText">Click a memory...</p>
-</div>
-<div id="guessGame" class="hidden">
-<h2>💋 What Am I To You?</h2>
 
-Stranger 😭
-Friend 🫂
-Bestie 🎀
-Jawnnn 💘
 
-</div>
-<div id="passwordGame" class="hidden">
-<h2>🔐 Secret Password</h2>
-<input id="pass" placeholder="Enter password">
+<section class="about">
 
-Unlock 💖
+<h2>About My Website 🌸</h2>
 
-<p id="passMsg"></p>
-</div>
-<div id="babyGame" class="hidden">
-<h2>🍼 Find Mellaw Babyhhh</h2>
+<p>
+This is my website. I am learning HTML and CSS and creating cute projects ✨
+</p>
 
-🌸
-⭐
-🍼
-🎀
-💘
 
-</div>
-<div id="loveGame" class="hidden">
-<h2>♾️ How Much Do You Love Mellaw?</h2>
+<button onclick="showMessage()">
+Click Me 💗
+</button>
 
-10%
-50%
-100%
-Infinity ♾️💖
-
-</div>
-<div id="finalMessage" class="hidden"><!-- Part 2: About + Cards -->
-
-<section class="about"> 
-<button onclick="showMessage()">Click Me</button>
 
 <p id="message"></p>
-    <h2>About My Website</h2>
-    <p>
-        This is my second section. I am learning HTML and CSS 🌸
-    </p>
+
+
 </section>
+
+
 
 
 <div class="cards">
 
-    <div class="card">
-        <h3>Design</h3>
-        <p>I create simple and beautiful designs.</p>
-    </div>
 
-    <div class="card">
-        <h3>Learning</h3>
-        <p>I am improving my coding skills.</p>
-    </div>
+<div class="card">
 
-    <div class="card">
-        <h3>Projects</h3>
-        <p>I will build more websites.</p>
-    </div>
+<h3>Design 🎨</h3>
 
-</div>.about {
-    text-align: center;
-    padding: 30px;
-}
+<p>
+I create simple and beautiful designs.
+</p>
 
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
+</div>
 
-.card {
-    background: white;
-    padding: 20px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #aaa;
-}
+
+
+<div class="card">
+
+<h3>Learning 📚</h3>
+
+<p>
+I am improving my coding skills.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Projects 💻</h3>
+
+<p>
+I will build more websites.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<section>
+
+<h2>🎁 Memory Hunt</h2>
+
+<p>Find memories 🥺</p>
+
+
+<div class="memory" onclick="memory(1)">🎁</div>
+
+<div class="memory" onclick="memory(2)">🌸</div>
+
+<div class="memory" onclick="memory(3)">⭐</div>
+
+
+<p id="memoryText">
+Click a memory...
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+<h2>💌 A Little Message</h2>
+
+<p>
+
+You are special and this little website is made with love 💖  
+Keep learning, keep growing, and keep smiling 🌸✨
+
+</p>
+
+
+</section>
+
+
+
+</div>
+
+
+
+
 <script>
-function showMessage() {
-    document.getElementById("message").innerHTML = "Thank you for visiting my website 🌸";
+
+
+function showMessage(){
+
+document.getElementById("message").innerHTML =
+"Thank you for visiting my website 🌸💖";
+
 }
+
+
+
+function memory(number){
+
+
+let text = document.getElementById("memoryText");
+
+
+if(number==1){
+
+text.innerHTML="A beautiful memory appeared 🎁💗";
+
+}
+
+else if(number==2){
+
+text.innerHTML="A sweet flower memory 🌸";
+
+}
+
+else{
+
+text.innerHTML="A shining star memory ⭐";
+
+}
+
+
+}
+
+
+
 </script>
+
 
 </html>
