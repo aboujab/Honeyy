@@ -68,12 +68,9 @@ padding:25px;
 border-radius:25px;
 box-shadow:0 0 20px rgba(0,0,0,.12);
 }
-button{
-padding:12px 20px;
-border:none;
-border-radius:12px;
-background:#ff4f8b;
-color:white;
+<button onclick="showMessage()">Click Me</button>
+
+<p id="message"></p>
 cursor:pointer;
 font-size:16px;
 margin:8px;
@@ -172,7 +169,10 @@ Infinity ♾️💖
 </div>
 <div id="finalMessage" class="hidden"><!-- Part 2: About + Cards -->
 
-<section class="about">
+<section class="about"> 
+<button onclick="showMessage()">Click Me</button>
+
+<p id="message"></p>
     <h2>About My Website</h2>
     <p>
         This is my second section. I am learning HTML and CSS 🌸
@@ -216,3 +216,10 @@ Infinity ♾️💖
     border-radius: 10px;
     box-shadow: 0 0 10px #aaa;
 }
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML = "Thank you for visiting my website 🌸";
+}
+</script>
+
+</html>
