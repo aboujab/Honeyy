@@ -1,456 +1,546 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera Bacha - 1 Year Anniversary</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --lux-rose: #f4b2b2;
+            --lux-crimson: #d67d7d;
+            --lux-gold: #c5a059;
+            --lux-cream: #fffbf7;
+            --text-main: #3d3131;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<title>Honeyy Adventure 💖</title>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--lux-cream);
+            background-image: radial-gradient(#fbe3e3 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            color: var(--text-main);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-<style>
+        .container {
+            max-width: 750px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 50px 35px;
+            box-shadow: 0 25px 60px rgba(214, 125, 125, 0.12);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            text-align: center;
+        }
 
-body{
-font-family:Arial,sans-serif;
-text-align:center;
-margin:0;
-padding:20px;
-background:linear-gradient(180deg,#ffe6f2,#fff8fc);
-color:#7a4160;
-}
+        /* Luxury Header Redesign */
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: var(--lux-crimson);
+            margin-bottom: 5px;
+        }
 
+        .sub-cursive {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--lux-gold);
+            margin-bottom: 25px;
+            display: block;
+        }
 
-.box{
-max-width:850px;
-margin:auto;
-background:#fff;
-padding:25px;
-border-radius:30px;
-box-shadow:0 0 25px #f5bfd8;
-}
+        .quote-box {
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 20px 0;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #615050;
+        }
 
+        .welcome-section {
+            background: linear-gradient(180deg, #fffcf9, #fff5f5);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(244, 178, 178, 0.4);
+        }
 
-h1,h2{
-color:#e98bb5;
-}
+        /* High-End Polished Buttons */
+        .btn-luxury {
+            background: linear-gradient(135deg, var(--lux-rose), var(--lux-crimson));
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(214, 125, 125, 0.3);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(214, 125, 125, 0.45);
+        }
 
-button{
-background:#f3a6c8;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:25px;
-cursor:pointer;
-transition:.3s;
-}
+        /* Section Layouts */
+        .games-header {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--lux-crimson);
+            margin: 40px 0 30px 0;
+        }
 
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
 
-button:hover{
-transform:scale(1.1);
-background:#ef91ba;
-}
+        .game-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 30px 25px;
+            border: 1px solid rgba(214, 125, 125, 0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.015);
+            transition: all 0.3s ease;
+        }
 
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(214, 125, 125, 0.08);
+        }
 
-.card{
-background:#fff0f7;
-padding:20px;
-width:200px;
-border-radius:20px;
-box-shadow:0 0 15px #f8d5e6;
-animation:fade 1.5s;
-}
+        .game-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
 
+        .game-subtitle {
+            font-size: 0.8rem;
+            color: #928181;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
 
-.cards{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+        /* Game 1: Memory Hunt Styling */
+        .emoji-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
 
+        .emoji-btn {
+            background: #fffcfc;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 20px;
+            font-size: 2rem;
+            width: 75px;
+            height: 75px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-@keyframes fade{
+        .emoji-btn:hover {
+            border-color: var(--lux-crimson);
+            background: #fff8f8;
+            transform: scale(1.05);
+        }
 
-from{
-opacity:0;
-transform:scale(.8);
-}
+        .memory-text {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.2rem;
+            color: var(--lux-crimson);
+            min-height: 60px;
+            margin-top: 15px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
 
-to{
-opacity:1;
-transform:scale(1);
-}
+        /* Game 2: Secret Password Styling */
+        .input-luxury {
+            width: 85%;
+            padding: 14px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(214, 125, 125, 0.3);
+            outline: none;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
 
-}
+        .input-luxury:focus {
+            border-color: var(--lux-gold);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+        }
 
+        .password-prize {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 600;
+            min-height: 60px;
+            line-height: 1.6;
+        }
 
-.memory{
+        /* Game 3: Dudu Game Styling */
+        .grid-3x2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 260px;
+            margin: 0 auto 20px auto;
+        }
 
-display:inline-block;
-width:80px;
-height:80px;
-line-height:80px;
-font-size:35px;
-background:#ffe0ef;
-border-radius:50%;
-margin:10px;
-cursor:pointer;
+        .dudu-btn {
+            background: #fffbfb;
+            border: 1px solid rgba(214, 125, 125, 0.15);
+            border-radius: 18px;
+            font-size: 1.8rem;
+            height: 70px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-}
+        .dudu-btn:hover {
+            transform: scale(1.05);
+            background: #fff5f5;
+        }
 
+        .dudu-result {
+            font-weight: 600;
+            color: var(--lux-crimson);
+            min-height: 45px;
+            font-size: 0.95rem;
+        }
 
-.heart{
+        /* Game 4: Love Slider Styling */
+        .slider-container {
+            margin: 25px 0;
+        }
 
-position:fixed;
-font-size:25px;
-animation:float 8s linear infinite;
+        .love-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 10px;
+            background: #f5dfdf;
+            outline: none;
+        }
 
-}
+        .love-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--lux-crimson);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
 
+        .love-percent {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--lux-crimson);
+            margin-top: 12px;
+        }
 
-@keyframes float{
+        /* Game 5: Full Width Clicker */
+        .heart-clicker {
+            font-size: 3.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            display: inline-block;
+            user-select: none;
+            filter: drop-shadow(0 4px 8px rgba(214,125,125,0.2));
+        }
 
-from{
-transform:translateY(100vh);
-}
+        .heart-clicker:active {
+            transform: scale(0.85);
+        }
 
-to{
-transform:translateY(-100px);
-}
+        .click-counter {
+            font-weight: 600;
+            margin-top: 12px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
 
-}
+        /* Premium Letterbox Presentation */
+        .message-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            color: var(--lux-crimson);
+            margin: 50px 0 25px 0;
+        }
 
+        .letter-box {
+            background: #ffffff;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 32px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.01);
+            max-height: 550px;
+            overflow-y: auto;
+        }
 
-.hidden{
-display:none;
-}
+        .letter-content {
+            font-size: 0.98rem;
+            line-height: 2;
+            color: #4a3e3e;
+            white-space: pre-line;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
 
+        /* Custom Scrollbar for Luxury Look */
+        .letter-box::-webkit-scrollbar {
+            width: 5px;
+        }
+        .letter-box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .letter-box::-webkit-scrollbar-thumb {
+            background: var(--lux-rose);
+            border-radius: 10px;
+        }
 
-</style>
-
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: var(--lux-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-
-
 <body>
 
-
-<div class="heart" style="left:10%">💗</div>
-<div class="heart" style="left:30%">🎀</div>
-<div class="heart" style="left:50%">🌸</div>
-<div class="heart" style="left:70%">💖</div>
-
-
-<div class="box">
-
-
-<h1>🎀 Honeyy Adventure 💖</h1>
-
-
-
-<section>
-
-<h2>About My Website 🌸</h2>
-
-<p>
-My cute little website made with love and HTML/CSS ✨
-</p>
-
-
-<button onclick="showMessage()">
-Click Me 💗
-</button>
-
-
-<p id="message"></p>
-
-
-</section>
-
-
-
-<div class="cards">
-
-
-<div class="card">
-<h3>Design 🎨</h3>
-<p>Cute designs.</p>
-</div>
-
-
-<div class="card">
-<h3>Learning 📚</h3>
-<p>Learning coding.</p>
-</div>
-
-
-<div class="card">
-<h3>Projects 💻</h3>
-<p>Building websites.</p>
-</div>
-
-
-</div>
-
-
-
-<section>
-
-<h2>🎁 Memory Hunt</h2>
-
-<div class="memory" onclick="memory(1)">🎁</div>
-<div class="memory" onclick="memory(2)">🌸</div>
-<div class="memory" onclick="memory(3)">⭐</div>
-
-
-<p id="memoryText">
-Click a memory 🥺
-</p>
-
-
-</section>
-<section>
-
-<h2>💋 What Am I To You?</h2>
-
-<p>
-Stranger 😭 <br>
-Friend 🫂 <br>
-Bestie 🎀 <br>
-Jawnnn 💖
-</p>
-
-</section>
-
-
-
-
-<section>
-
-<h2>🔐 Secret Password</h2>
-
-<input id="pass" placeholder="Enter password">
-
-
-<button onclick="unlock()">
-Unlock 💗
-</button>
-
-
-<p id="passMsg"></p>
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>🍼 Find Mellaw Babyhhh</h2>
-
-
-<div class="memory" onclick="baby()">🌸</div>
-<div class="memory" onclick="baby()">⭐</div>
-<div class="memory" onclick="baby()">🍼</div>
-<div class="memory" onclick="baby()">🎀</div>
-<div class="memory" onclick="baby()">💘</div>
-
-
-<p id="babyMsg">
-Find Mellaw 🥺
-</p>
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>♾️ How Much Do You Love Mellaw?</h2>
-
-
-<button onclick="love(10)">10%</button>
-
-<button onclick="love(50)">50%</button>
-
-<button onclick="love(100)">100%</button>
-
-<button onclick="love(999)">Infinity ♾️</button>
-
-
-<p id="loveMsg"></p>
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>💌 My Special Message 💌</h2>
-
-
-<p style="white-space:pre-line;">
-
-
-🎀💋🥺 Melliwww Pyaaallliw Jawnnn! 🫠🥺💋🎀
-
-Yeh mehhh ounnn jarriwww! 🫠💗
-
+<div class="container">
+    
+    <h1 class="main-title">Mera Bacha</h1>
+    <span class="sub-cursive">Welcome to my little world</span>
+
+    <div class="quote-box">
+        "You're my today and all of my tomorrows"
+    </div>
+
+    <div class="welcome-section">
+        <p style="margin-bottom: 20px; font-weight: 300; font-size: 0.95rem; letter-spacing: 0.5px;">Helloo my jaan! Something beautiful is waiting for you below...</p>
+        <button class="btn-luxury" onclick="alert('I love you infinitely! ❤️ Now go play your games below!')">Click Me 💛</button>
+    </div>
+
+    <h2 class="games-header">Fun Games For You</h2>
+
+    <div class="grid-2col">
+        
+        <div class="game-card">
+            <h3 class="game-title">🎁 Memory Hunt</h3>
+            <p class="game-subtitle">Click on the symbols to reveal hidden memories</p>
+            <div class="emoji-row">
+                <button class="emoji-btn" onclick="revealMemory(1)">🎁</button>
+                <button class="emoji-btn" onclick="revealMemory(2)">🌸</button>
+                <button class="emoji-btn" onclick="revealMemory(3)">⭐</button>
+            </div>
+            <div class="memory-text" id="memory-display">Select a token...</div>
+        </div>
+
+        <div class="game-card">
+            <h3 class="game-title">🔒 Secret Password</h3>
+            <p class="game-subtitle">Enter the secret passcode to unlock</p>
+            <input type="text" id="password-input" class="input-luxury" placeholder="Enter password here...">
+            <br>
+            <button class="btn-luxury" onclick="checkPassword()">Unlock ✨</button>
+            <div class="password-prize" id="password-display"></div>
+        </div>
+
+        <div class="game-card">
+            <h3 class="game-title">🔍 Dhondo Kidell ae Dudu</h3>
+            <p class="game-subtitle">Find where the hidden feeder is hidden! 🍼</p>
+            <div class="grid-3x2">
+                <button class="dudu-btn" onclick="checkDudu(this, 1)">🎀</button>
+                <button class="dudu-btn" onclick="checkDudu(this, 2)">💖</button>
+                <button class="dudu-btn" onclick="checkDudu(this, 3)">💛</button>
+                <button class="dudu-btn" onclick="checkDudu(this, 4)">🐥</button>
+                <button class="dudu-btn" onclick="checkDudu(this, 5)">🧸</button>
+                <button class="dudu-btn" onclick="checkDudu(this, 6)">🌸</button>
+            </div>
+            <div class="dudu-result" id="dudu-display">Clicks: 0 / 6</div>
+        </div>
+
+        <div class="game-card">
+            <h3 class="game-title">💝 How Much Do You Love Me?</h3>
+            <p class="game-subtitle">Slide the heart bar to measure your love</p>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="50" class="love-slider" id="loveSlider" oninput="updateLove(this.value)">
+            </div>
+            <div class="love-percent" id="love-percent-text">50%</div>
+            <p id="love-desc" style="font-size: 0.85rem; color: var(--lux-crimson); margin-top: 8px; font-weight: 300;">Growing every second...</p>
+        </div>
+
+    </div>
+
+    <div class="game-card" style="margin-bottom: 50px;">
+        <h3 class="game-title">❤️ Click The Heart</h3>
+        <p class="game-subtitle">Tap the heart as many times as you can to send hugs!</p>
+        <button class="heart-clicker" onclick="clickHeart()">💖</button>
+        <div class="click-counter" id="click-count-text">You clicked 0 times! ✨</div>
+    </div>
+
+    <h2 class="message-section-title">💌 My Special Message 💌</h2>
+    <div class="letter-box">
+        <div class="letter-content">🎀💋🥺🫠 Melliwww Pyaaallliw Jawnnn! 🫠🥺💋🎀
+Yeh mehhh ounnn jarriwww! 🫠🫠💗
 Awptiii manooo!! Shotttiw shii mehnttt 😭🫂
-
-Mujhhhyyy klnaaa nhi ataaa tha plll sheeekh gaiunnn 🫠💗
-
-
-Ummmm nmmm melllyyyy noonewww 🫠🎀💋
-
-Mellllyyhhh gulluwwwww! 💗
-
-Mellliwww jawwwwnnn! 🎀
-
+Mujhhhyyy klnaaa nhi ataaa tha plll sheeekh gaiunnn 🫠🫠💗
+Ummmm nmmm melllyyyy nooonewww 🫠🎀💋,
+Mellllyyhhh gulluwwwww! 🫠💗
+Mellliwww jawwwwnnn! 🎀🫠
 Melllyhhh gudddyhhh! 🍼💘
-
-
-Awwpkyyy annyyy shyyy melliwww zindagiii bowhttt pyariii olll color fulll ho gyi hhh 🌈🎀
-
-
+Melllyhhh pyaaallyhhh bshyyyy 🎀💘🫂🫠🍼
+Olll mellllaawww “HAALLOOOONNN” 🫠🫠💋🎀
+Awwpkyyy annyyy shyyy melliwww zindagiii bowhttt pyariii olll color fulll ho gyi hhh 🫠🎀🌈
+Jeshyyy kisiii musawirrr nyyy rngggg bhrhhh diyehhh honn 💗🎨🫠
 TMHARYYY ANYYY SHY PEHLYYY TO DOSHTTT,
-MEH KUSHHH V NHI THIII 😭
-
+MEH KUSHHH V NHI THIII 😭💋
 ABB MEH SHBB KUSHH HUNN 🫠🎀
-
-
-MELLAWWW AIK BABYH HHH 🍼💋
-
-
+MELLAWWW AIK BABYH HHH SHOTTAWW SHARAWWW 😭🍼💋🎀🫠
+MELLAWWW AIK SHOHAR HHH
+(ZUBANII NIKAH HO CHUKA KLY KLY 🫠😭💍)
 OLL WOH MELLAW AIKK DOSHT B HHH 🫂💗
-
-
-🎀✨ HAPPY 1 YEAR WITH EACH OTHER ✨🎀
-
+OR SBBB SHY HASHEEEN BAAT MERI JAWWNN 🥺🎀💋
+MERAA PYAAR VV HOO 💗💋🌏🎀🫠
+🎀✨🎀 HAPPY 1 YEAR WITH EACH OTHER 🎀✨🎀
 🌷 (26 JUNE 2025) 🌷
-
-
-MEH WADDA KRTIUN HAMESHA SAATH RAHUNGIII 💗
-
-
+Mehhh wadddaw krtiunnn hmeshaaa hushhh rkhungiii!! 🫠💗🎀
+Tmharyyy saath zindagiii brhhh akhriii saaans tk rahungiii 🫠🫠🎀🌏
+Hrrr mushqilll meh saaath dungiiii!! 🫂💗
+Jooo mujhhh syyy huwaaa krungiwwww 🍼🫠
+Prrr wadddawh krtiii hun k meh….
+💗🎀🫂🌏
 ********* HMESHA APP K SAAATH RAHUNGIII *********
-
-
+🫠🫠💗🎀🌏🫂
+🌙✨💋
 “ L O V E  Y O U H  J A W W W N N !! ”
+💋💗🌙👒✨</div>
+    </div>
 
-💋💗🌙
+    <footer>
+        Made with all my love for youu 💛
+    </footer>
 
+</div>
 
-</p>
-
-</section>
 <script>
+    // 1. Memory Hunt Logic
+    function revealMemory(num) {
+        const display = document.getElementById('memory-display');
+        if(num === 1) {
+            display.innerText = "akhriii sans tk pyaar krunga";
+        } else if(num === 2) {
+            display.innerText = "hud ko b war du tujh pr";
+        } else if(num === 3) {
+            display.innerText = "merii zareeen kuch ghlt nhi kr sktiii 🥺💘";
+        }
+    }
 
+    // 2. Secret Password Logic
+    function checkPassword() {
+        const input = document.getElementById('password-input').value.trim().toLowerCase();
+        const display = document.getElementById('password-display');
+        
+        if(input === "nooniw") {
+            display.innerHTML = "mellly noonew ko to shb ptaw ae 🤧👒🫠🍼 <br><span style='font-size:2.2rem; display:inline-block; margin-top:8px;'>💋</span>";
+            display.style.color = "var(--lux-crimson)";
+        } else {
+            display.innerHTML = "<span style='color:var(--lux-crimson); font-size:0.85rem; font-weight:400;'>Wrong secret password! Try again baby... 🥺</span>";
+        }
+    }
 
-function showMessage(){
+    // 3. Dhondo Kidell ae Dudu Engine 
+    const winningIndex = Math.floor(Math.random() * 6) + 1;
+    let clickCount = 0;
+    let gameWon = false;
 
-document.getElementById("message").innerHTML =
-"Thank you for visiting my website 🌸💖";
+    function checkDudu(buttonElement, index) {
+        if(gameWon) return;
+        
+        clickCount++;
+        const display = document.getElementById('dudu-display');
+        
+        if(index === winningIndex) {
+            buttonElement.innerText = "🍼";
+            buttonElement.style.background = "#fff0f0";
+            display.innerHTML = "You found the hidden feeder! 🎉 <br><span style='font-size:2.2rem; display:inline-block; margin-top:5px;'>💋</span>";
+            gameWon = true;
+        } else {
+            buttonElement.innerText = "❌";
+            buttonElement.disabled = true;
+            buttonElement.style.opacity = "0.4";
+            display.innerText = "Clicks: " + clickCount + " / 6 - Keep looking! 👀";
+        }
+    }
 
-}
+    // 4. Love Slider Logic
+    function updateLove(val) {
+        const percentText = document.getElementById('love-percent-text');
+        const descText = document.getElementById('love-desc');
+        
+        if(val == 100) {
+            percentText.innerText = "100%";
+            descText.innerText = "Infinite love for youuu! ♡ 😭💋";
+        } else {
+            percentText.innerText = val + "%";
+            descText.innerText = "Keep sliding to maximum! 💕";
+        }
+    }
 
-
-
-function memory(number){
-
-let text = document.getElementById("memoryText");
-
-
-if(number==1){
-
-text.innerHTML="🎁 A cute memory found 💗";
-
-}
-
-else if(number==2){
-
-text.innerHTML="🌸 A flower memory found ✨";
-
-}
-
-else{
-
-text.innerHTML="⭐ A star memory found 💖";
-
-}
-
-}
-
-
-
-
-function unlock(){
-
-let pass =
-document.getElementById("pass").value;
-
-
-if(pass=="nooniw"){
-
-document.getElementById("passMsg").innerHTML =
-"Unlocked 💖🥺";
-
-}
-
-else{
-
-document.getElementById("passMsg").innerHTML =
-"Wrong password 🫠";
-
-}
-
-}
-
-
-
-
-function baby(){
-
-document.getElementById("babyMsg").innerHTML =
-"Found Mellaw Babyhhh 🍼💘";
-
-}
-
-
-
-
-
-function love(number){
-
-
-if(number==999){
-
-document.getElementById("loveMsg").innerHTML =
-"Infinity love ♾️💖";
-
-}
-
-else{
-
-document.getElementById("loveMsg").innerHTML =
-number+"% love 💗";
-
-}
-
-}
-
-
+    // 5. Click the Heart Logic
+    let heartClicks = 0;
+    function clickHeart() {
+        heartClicks++;
+        document.getElementById('click-count-text').innerText = "You clicked " + heartClicks + " times! ✨💋";
+    }
 </script>
 
-
 </body>
-
 </html>
