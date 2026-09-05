@@ -1,707 +1,2527 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Honeyy ❤️</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  scroll-behavior: smooth;
-}
-body {
-  background: #f8f0df;
-  color: #3b1820;
-  font-family: "Cormorant Garamond", serif;
-  overflow-x: hidden;
-}
-section {
-  min-height: 100vh;
-  padding: 70px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.container {
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
-}
-h1, h2, h3 {
-  font-family: "Dancing Script", cursive;
-  color: #4b0d1b;
-}
-p {
-  line-height: 1.7;
-  font-size: 19px;
-}
-/* OPENING */
-#opening {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(184,101,114,.15), transparent 30%),
-    #f5ead4;
-  text-align: center;
-  position: relative;
-}
-.cover {
-  max-width: 720px;
-  padding: 60px 30px;
-  border: 2px solid #b58b53;
-  background: rgba(255,250,239,.8);
-  box-shadow: 0 20px 50px rgba(40,6,16,.15);
-  border-radius: 8px;
-}
-.kicker {
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: #8c5a63;
-  margin-bottom: 20px;
-}
-.cover h1 {
-  font-size: clamp(55px, 12vw, 100px);
-  margin-bottom: 15px;
-}
-.cover .subtitle {
-  font-size: 25px;
-  margin-bottom: 25px;
-}
-.note {
-  font-style: italic;
-  margin-bottom: 35px;
-}
-.main-btn,
-.unlock-btn {
-  border: none;
-  background: #4b0d1b;
-  color: #f8f0df;
-  padding: 15px 28px;
-  border-radius: 30px;
-  font-family: inherit;
-  font-size: 18px;
-  cursor: pointer;
-  transition: .3s;
-}
-.main-btn:hover,
-.unlock-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  background: #280610;
-}
-.heart {
-  position: absolute;
-  font-size: 25px;
-  animation: float 5s infinite ease-in-out;
-  opacity: .7;
-}
-.h1 { left: 10%; top: 20%; }
-.h2 { right: 12%; top: 30%; animation-delay: 1s; }
-.h3 { left: 20%; bottom: 15%; animation-delay: 2s; }
-.h4 { right: 20%; bottom: 20%; animation-delay: 3s; }
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-20px) rotate(8deg); }
-}
-/* STORY */
-#our-story {
-  background: #4b0d1b;
-  color: #f8f0df;
-}
-.story-card {
-  max-width: 800px;
-  text-align: center;
-  padding: 50px 30px;
-  border: 1px solid #b58b53;
-  background: rgba(40,6,16,.55);
-}
-.story-card h2 {
-  color: #eac4c0;
-  font-size: 55px;
-  margin-bottom: 25px;
-}
-/* MEMORIES */
-#memories {
-  background: #f5ead4;
-}
-.section-title {
-  text-align: center;
-  font-size: 55px;
-  margin-bottom: 45px;
-}
-.polaroids {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 35px;
-}
-.polaroid {
-  background: white;
-  padding: 12px 12px 35px;
-  box-shadow: 0 12px 25px rgba(40,6,16,.2);
-  transform: rotate(-2deg);
-  transition: .3s;
-}
-.polaroid:nth-child(even) {
-  transform: rotate(3deg);
-}
-.polaroid:hover {
-  transform: rotate(0) translateY(-8px);
-}
-.polaroid img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
-}
-.polaroid p {
-  text-align: center;
-  font-family: "Dancing Script", cursive;
-  font-size: 23px;
-  margin-top: 10px;
-}
-/* MEMORY HUNT */
-#memory-hunt {
-  background: #eac4c0;
-}
-.hunt-box {
-  width: 100%;
-  text-align: center;
-}
-.hunt-box h2 {
-  font-size: 55px;
-  margin-bottom: 10px;
-}
-.hunt-intro {
-  max-width: 650px;
-  margin: 0 auto 30px;
-}
-.progress {
-  font-size: 22px;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-.memory-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-bottom: 30px;
-}
-.memory-card {
-  min-height: 250px;
-  perspective: 1000px;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  font-family: inherit;
-  touch-action: manipulation;
-}
-.memory-inner {
-  width: 100%;
-  height: 250px;
-  position: relative;
-  transition: transform .7s;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-}
-.memory-card.opened .memory-inner {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-}
-.memory-front,
-.memory-back {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  border: 2px solid #b58b53;
-  border-radius: 12px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.memory-front {
-  background: #fffaf0;
-}
-.memory-back {
-  background: #4b0d1b;
-  color: #f8f0df;
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-}
-.memory-icon {
-  font-size: 48px;
-  margin-bottom: 15px;
-}
-.memory-title {
-  font-family: "Dancing Script", cursive;
-  font-size: 30px;
-  color: #4b0d1b;
-}
-.memory-back h3 {
-  color: #eac4c0;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-.memory-back p {
-  font-size: 17px;
-}
-.tap-hint {
-  margin-top: 12px;
-  font-size: 14px;
-  opacity: .65;
-}
-.unlock-btn:disabled {
-  opacity: .45;
-  cursor: not-allowed;
-}
-/* LETTERS */
-#letters {
-  background: #f8f0df;
-}
-.letters {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-.letter {
-  background: #fffaf0;
-  padding: 35px;
-  border: 1px solid #b58b53;
-  box-shadow: 0 10px 25px rgba(40,6,16,.12);
-}
-.letter h3 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-/* SONG */
-#song {
-  background: #280610;
-  color: #f8f0df;
-  text-align: center;
-}
-.song-card {
-  max-width: 650px;
-  margin: auto;
-  padding: 50px 30px;
-  border: 1px solid #b58b53;
-}
-.song-card h2 {
-  color: #eac4c0;
-  font-size: 55px;
-  margin-bottom: 20px;
-}
-.spotify {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 13px 25px;
-  background: #b86572;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-}
-/* FINAL */
-#final-surprise {
-  background: #f5ead4;
-  text-align: center;
-}
-.final-box h2 {
-  font-size: 65px;
-  margin-bottom: 25px;
-}
-.envelope {
-  width: 280px;
-  height: 190px;
-  margin: 35px auto;
-  background: #4b0d1b;
-  position: relative;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0 15px 30px rgba(40,6,16,.2);
-}
-.envelope::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-top: 100px solid #b86572;
-  transform-origin: top;
-  transition: .5s;
-}
-.envelope.revealed::before {
-  transform: rotateX(180deg);
-}
-.letter-inside {
-  position: absolute;
-  background: #fffaf0;
-  width: 85%;
-  height: 80%;
-  left: 7.5%;
-  top: 10%;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: .5s;
-  color: #4b0d1b;
-}
-.envelope.revealed .letter-inside {
-  opacity: 1;
-}
-.final-message {
-  display: none;
-  max-width: 700px;
-  margin: 30px auto 0;
-}
-.final-message.show {
-  display: block;
-  animation: appear .8s ease;
-}
-@keyframes appear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-/* POETRY */
-#poetry {
-  background: #4b0d1b;
-  color: #f8f0df;
-  text-align: center;
-}
-.poetry h2 {
-  color: #eac4c0;
-  font-size: 60px;
-  margin-bottom: 35px;
-}
-.urdu {
-  font-size: 28px;
-  line-height: 2;
-  direction: rtl;
-}
-/* FOOTER */
-footer {
-  background: #280610;
-  color: #f8f0df;
-  text-align: center;
-  padding: 30px 15px;
-}
-@media (max-width: 700px) {
-  section {
-    padding: 55px 16px;
-  }
-  .memory-grid,
-  .letters {
-    grid-template-columns: 1fr;
-  }
-  .polaroids {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-  .section-title,
-  .story-card h2,
-  .hunt-box h2,
-  .song-card h2 {
-    font-size: 43px;
-  }
-  .final-box h2 {
-    font-size: 50px;
-  }
-  .polaroid {
-    padding: 8px 8px 25px;
-  }
-  .polaroid p {
-    font-size: 18px;
-  }
-}
-</style>
-</head>
-<body>
-<!-- OPENING -->
-<section id="opening">
-  <div class="heart h1">♥</div>
-  <div class="heart h2">♡</div>
-  <div class="heart h3">♥</div>
-  <div class="heart h4">♡</div>
-  <div class="cover">
-    <div class="kicker">A little place made just for you</div>
-    <h1>Honeyy</h1>
-    <p class="subtitle">One year of us. ❤️</p>
-    <p class="note">
-      Some memories deserve more than a place in our camera roll.
-      They deserve their own little world.
-    </p>
-    <button class="main-btn" onclick="openStory()">Open Our Story ♡</button>
-  </div>
-</section>
-<!-- STORY -->
-<section id="our-story">
-  <div class="container">
-    <div class="story-card">
-      <h2>Our Story</h2>
-      <p>
-        Somewhere between random conversations, silly moments,
-        laughter and all the little things we never planned,
-        you became someone incredibly special to me.
-      </p>
-      <br>
-      <p>
-        And somehow, one year later, here we are —
-        still collecting memories. ❤️
-      </p>
-    </div>
-  </div>
-</section>
-<!-- MEMORIES -->
-<section id="memories">
-  <div class="container">
-    <h2 class="section-title">Little Memories 📸</h2>
-    <div class="polaroids">
-      <div class="polaroid">
-        <img src="1.jpeg" alt="Our memory 1">
-        <p>That little moment ♡</p>
-      </div>
-      <div class="polaroid">
-        <img src="2.jpeg" alt="Our memory 2">
-        <p>A memory I'll keep</p>
-      </div>
-      <div class="polaroid">
-        <img src="3.jpeg" alt="Our memory 3">
-        <p>Us being us ♡</p>
-      </div>
-      <div class="polaroid">
-        <img src="4.jpeg" alt="Our memory 4">
-        <p>One of my favourites</p>
-      </div>
-      <div class="polaroid">
-        <img src="5.jpeg" alt="Our memory 5">
-        <p>Forever a little memory</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- MEMORY HUNT -->
-<section id="memory-hunt">
-  <div class="container hunt-box">
-    <h2>Memory Hunt 🗝️</h2>
-    <p class="hunt-intro">
-      There are three little memories hidden here.
-      Tap each card to discover them all.
-    </p>
-    <div class="progress">
-      Memories found: <span id="hunt-status">0 / 3</span>
-    </div>
-    <div class="memory-grid">
-      <button class="memory-card" data-memory="beginning" aria-pressed="false">
-        <div class="memory-inner">
-          <div class="memory-front">
-            <div class="memory-icon">🌹</div>
-            <div class="memory-title">The Beginning</div>
-            <div class="tap-hint">tap to open</div>
-          </div>
-          <div class="memory-back">
-            <h3>The Beginning</h3>
-            <p>
-              Every beautiful story has a beginning.
-              Ours became one of my favourite chapters. ❤️
-            </p>
-          </div>
-        </div>
-      </button>
-      <button class="memory-card" data-memory="laughs" aria-pressed="false">
-        <div class="memory-inner">
-          <div class="memory-front">
-            <div class="memory-icon">😂</div>
-            <div class="memory-title">The Laughs</div>
-            <div class="tap-hint">tap to open</div>
-          </div>
-          <div class="memory-back">
-            <h3>The Laughs</h3>
-            <p>
-              The random jokes, stupid conversations
-              and moments that made absolutely no sense.
-              Somehow, they're some of the best memories.
-            </p>
-          </div>
-        </div>
-      </button>
-      <button class="memory-card" data-memory="connection" aria-pressed="false">
-        <div class="memory-inner">
-          <div class="memory-front">
-            <div class="memory-icon">🫶</div>
-            <div class="memory-title">The Connection</div>
-            <div class="tap-hint">tap to open</div>
-          </div>
-          <div class="memory-back">
-            <h3>The Connection</h3>
-            <p>
-              Some people just become home in the quietest way.
-              That's what makes this friendship so special.
-            </p>
-          </div>
-        </div>
-      </button>
-    </div>
-    <button id="unlock-button" class="unlock-btn" disabled>
-      🔒 Find all 3 memories
-    </button>
-  </div>
-</section>
-<!-- LETTERS -->
-<section id="letters">
-  <div class="container">
-    <h2 class="section-title">A Few Words 💌</h2>
-    <div class="letters">
-      <div class="letter">
-        <h3>Dear Honeyy,</h3>
-        <p>
-          If I tried to put everything this friendship means
-          into words, I probably wouldn't know where to begin.
-          Thank you for all the laughter, conversations,
-          memories and little moments.
-        </p>
-      </div>
-      <div class="letter">
-        <h3>One Year Later...</h3>
-        <p>
-          Here's to everything we've already experienced,
-          and to all the memories that haven't happened yet.
-          One year down, and hopefully many more beautiful
-          chapters ahead. ❤️
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SONG -->
-<section id="song">
-  <div class="container">
-    <div class="song-card">
-      <h2>Our Little Song 🎵</h2>
-      <p>
-        Some songs sound different when they become
-        connected to a person.
-      </p>
-      <a
-        class="spotify"
-        href="https://open.spotify.com/"
-        target="_blank"
-        rel="noopener"
-      >
-        Open Spotify ♫
-      </a>
-    </div>
-  </div>
-</section>
-<!-- FINAL -->
-<section id="final-surprise">
-  <div class="container final-box">
-    <h2>One Last Thing... 💌</h2>
-    <p>
-      You found all the memories.
-      Now there's something waiting for you.
-    </p>
-    <div
-      class="envelope"
-      id="envelope"
-      role="button"
-      tabindex="0"
-      aria-expanded="false"
-      aria-label="Open the surprise envelope"
-    >
-      <div class="letter-inside">
-        <strong>For Honeyy, with all my heart. ❤️</strong>
-      </div>
-    </div>
-    <button id="open-envelope-button" class="main-btn">
-      Open My Letter 💌
-    </button>
-    <div class="final-message" id="final-message">
-      <p>
-        No matter how many years pass, I hope we always
-        have a little piece of this friendship that feels
-        exactly like this. ❤️
-      </p>
-    </div>
-  </div>
-</section>
-<!-- POETRY -->
-<section id="poetry">
-  <div class="container">
-    <div class="poetry">
-      <h2>تمہارے لیے ❤️</h2>
-      <p class="urdu">
-        میں چاہوں بھی تو وہ الفاظ نہ لکھ پاؤں<br>
-        جن میں بیان ہو پائے کہ کتنی محبت ہے تم سے
-        <br><br>
-        تم پر ختم ہوتی ہیں تمام حدیں محبت کی،<br>
-        تم سے، تم میں، تم پر ختم ہوتی ہے دنیا میری۔ ❤️‍🩹
-      </p>
-    </div>
-  </div>
-</section>
-<footer>
-  Made with love, memories & a little bit of madness. ❤️
-</footer>
-<script>
-const memoryCards = document.querySelectorAll(".memory-card");
-const statusText = document.getElementById("hunt-status");
-const unlockButton = document.getElementById("unlock-button");
-const envelope = document.getElementById("envelope");
-const openEnvelopeButton = document.getElementById("open-envelope-button");
-const finalMessage = document.getElementById("final-message");
-const foundMemories = new Set();
-function openStory() {
-  document.getElementById("our-story").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-memoryCards.forEach(card => {
-  card.addEventListener("click", function () {
-    const memoryName = this.dataset.memory;
-    if (!this.classList.contains("opened")) {
-      this.classList.add("opened");
-      this.setAttribute("aria-pressed", "true");
-      foundMemories.add(memoryName);
-      const count = foundMemories.size;
-      statusText.textContent = count + " / 3";
-      if (count === 3) {
-        unlockButton.disabled = false;
-        unlockButton.textContent = "🔓 Unlock the Surprise";
-      }
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For My Honeyh</title>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+
+      --wine: #4b0d1b;
+
+      --deep-wine: #280610;
+
+      --rose: #b86572;
+
+      --blush: #eac4c0;
+
+      --ivory: #f8f0df;
+
+      --paper: #f5ead4;
+
+      --ink: #3b1820;
+
+      --gold: #b58b53;
+
     }
-  });
-});
-unlockButton.addEventListener("click", function () {
-  if (foundMemories.size === 3) {
-    document.getElementById("final-surprise").scrollIntoView({
-      behavior: "smooth"
+
+    * { box-sizing: border-box; }
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      width: 100%;
+
+      overflow-x: hidden;
+
+      color: var(--ink);
+
+      font-family: "Work Sans", sans-serif;
+
+      background-color: var(--deep-wine);
+
+    }
+
+    button, a {
+
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+    button:focus-visible, a:focus-visible {
+
+      outline: 3px solid #f9d99a;
+
+      outline-offset: 4px;
+
+    }
+
+    .handwriting {
+
+      font-family: "Allura", cursive;
+
+    }
+
+    .serif {
+
+      font-family: "Playfair Display", serif;
+
+    }
+
+    .urdu {
+
+      font-family: "Noto Naskh Arabic", serif;
+
+      direction: rtl;
+
+    }
+
+    .paper-grain {
+
+      background-color: var(--paper);
+
+      background-image:
+
+        linear-gradient(100deg, rgba(113,67,38,.06) 1px, transparent 1px),
+
+        radial-gradient(circle at 10% 20%, rgba(111,42,42,.08) 0 1px, transparent 1.5px);
+
+      background-size: 23px 23px, 17px 17px;
+
+    }
+
+    .torn {
+
+      clip-path: polygon(
+
+        0 1%, 3% 0, 7% 1%, 12% 0, 19% 1%, 26% 0,
+
+        33% 1%, 41% 0, 49% 1%, 57% 0, 63% 1%, 72% 0,
+
+        78% 1%, 84% 0, 91% 1%, 97% 0, 100% 1%, 99% 98%,
+
+        95% 100%, 88% 99%, 82% 100%, 74% 99%, 67% 100%,
+
+        58% 99%, 51% 100%, 43% 99%, 35% 100%, 29% 99%,
+
+        20% 100%, 12% 99%, 4% 100%, 0 98%
+
+      );
+
+    }
+
+    .opening {
+
+      min-height: 100vh;
+
+      background: radial-gradient(
+
+        circle at 50% 35%,
+
+        #761b31 0%,
+
+        #4b0d1b 47%,
+
+        #25040d 100%
+
+      );
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+    .opening::before,
+
+    .opening::after {
+
+      content: "";
+
+      position: absolute;
+
+      pointer-events: none;
+
+      border-radius: 50%;
+
+      filter: blur(4px);
+
+    }
+
+    .opening::before {
+
+      width: 55vw;
+
+      height: 55vw;
+
+      max-width: 650px;
+
+      max-height: 650px;
+
+      border: 1px solid rgba(244,211,163,.25);
+
+      top: -20%;
+
+      right: -15%;
+
+      box-shadow: 0 0 120px rgba(234,157,143,.17);
+
+    }
+
+    .opening::after {
+
+      width: 45vw;
+
+      height: 45vw;
+
+      max-width: 520px;
+
+      max-height: 520px;
+
+      border: 1px solid rgba(244,211,163,.14);
+
+      bottom: -23%;
+
+      left: -15%;
+
+    }
+
+    .cover-paper {
+
+      position: relative;
+
+      max-width: 760px;
+
+      background: linear-gradient(145deg, #fff7e6 0%, #f0dfc2 100%);
+
+      box-shadow:
+
+        0 24px 70px rgba(0,0,0,.45),
+
+        inset 0 0 50px rgba(114,60,26,.12);
+
+    }
+
+    .cover-paper::before {
+
+      content: "♡";
+
+      font-family: "Allura", cursive;
+
+      color: rgba(126,22,42,.15);
+
+      font-size: 14rem;
+
+      position: absolute;
+
+      right: 6%;
+
+      top: -5%;
+
+      transform: rotate(-15deg);
+
+    }
+
+    .flower-corner {
+
+      position: absolute;
+
+      font-size: clamp(3rem, 8vw, 6rem);
+
+      filter: drop-shadow(0 6px 4px rgba(0,0,0,.2));
+
+      z-index: 2;
+
+    }
+
+    .float-heart {
+
+      position: absolute;
+
+      color: rgba(255,221,211,.82);
+
+      animation: drift 7s ease-in-out infinite;
+
+      pointer-events: none;
+
+    }
+
+    .float-heart:nth-child(2) {
+
+      animation-delay: -2s;
+
+    }
+
+    .float-heart:nth-child(3) {
+
+      animation-delay: -4s;
+
+    }
+
+    .float-heart:nth-child(4) {
+
+      animation-delay: -6s;
+
+    }
+
+    @keyframes drift {
+
+      0%,100% {
+
+        transform: translateY(0) rotate(-8deg);
+
+        opacity: .45;
+
+      }
+
+      50% {
+
+        transform: translateY(-28px) rotate(8deg);
+
+        opacity: 1;
+
+      }
+
+    }
+
+    .story-shell {
+
+      display: none;
+
+      width: 100%;
+
+      background:
+
+        radial-gradient(circle at 88% 8%, rgba(229,152,140,.18), transparent 24rem),
+
+        radial-gradient(circle at 9% 18%, rgba(245,222,175,.11), transparent 22rem),
+
+        var(--deep-wine);
+
+    }
+
+    .story-shell.visible {
+
+      display: block;
+
+      animation: reveal .8s ease both;
+
+    }
+
+    @keyframes reveal {
+
+      from {
+
+        opacity: 0;
+
+        transform: translateY(16px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform: none;
+
+      }
+
+    }
+
+    .section-wrap {
+
+      width: 100%;
+
+      max-width: 1120px;
+
+      margin: 0 auto;
+
+      padding: 5.5rem 1.25rem;
+
+      position: relative;
+
+    }
+
+    .section-title {
+
+      color: #fff3dc;
+
+      text-align: center;
+
+      margin: 0 0 .7rem;
+
+      letter-spacing: .1em;
+
+      font-family: "Playfair Display", serif;
+
+    }
+
+    .section-intro {
+
+      color: #efc9c0;
+
+      text-align: center;
+
+      max-width: 620px;
+
+      margin: 0 auto 2.6rem;
+
+      line-height: 1.7;
+
+    }
+
+    .letter-paper {
+
+      box-shadow:
+
+        10px 14px 0 rgba(30,3,10,.25),
+
+        0 20px 45px rgba(0,0,0,.28),
+
+        inset 0 0 40px rgba(125,77,30,.08);
+
+      position: relative;
+
+    }
+
+    .letter-paper::after {
+
+      content: "♥";
+
+      position: absolute;
+
+      color: rgba(128,15,35,.15);
+
+      font-size: 4rem;
+
+      right: 1.4rem;
+
+      bottom: .4rem;
+
+      transform: rotate(-18deg);
+
+      pointer-events: none;
+
+    }
+
+    .polaroid {
+
+      background: #fff9ec;
+
+      padding: .7rem .7rem 1.45rem;
+
+      box-shadow:
+
+        4px 8px 0 rgba(18, 2, 6, .25),
+
+        0 13px 25px rgba(0,0,0,.28);
+
+      transition: transform .35s ease, box-shadow .35s ease;
+
+      position: relative;
+
+    }
+
+    .polaroid:hover,
+
+    .polaroid:focus-within {
+
+      transform: translateY(-10px) rotate(0deg) scale(1.025);
+
+      box-shadow:
+
+        7px 14px 0 rgba(18, 2, 6, .2),
+
+        0 18px 34px rgba(0,0,0,.34);
+
+      z-index: 2;
+
+    }
+
+    .polaroid img {
+
+      width: 100%;
+
+      height: 17rem;
+
+      display: block;
+
+      object-fit: cover;
+
+      background: #d9cab1;
+
+      filter: sepia(.08) contrast(.96);
+
+    }
+
+    .polaroid:nth-child(2) img,
+
+    .polaroid:nth-child(5) img {
+
+      object-position: center;
+
+    }
+
+    .polaroid:nth-child(3) img {
+
+      object-position: center 24%;
+
+    }
+
+    .tape {
+
+      width: 65px;
+
+      height: 22px;
+
+      position: absolute;
+
+      top: -10px;
+
+      left: calc(50% - 33px);
+
+      background: rgba(230,188,155,.63);
+
+      transform: rotate(-3deg);
+
+    }
+
+    /* iPad / Safari friendly memory cards */
+
+    .memory-card {
+
+      min-height: 275px;
+
+      cursor: pointer;
+
+      border: 0;
+
+      position: relative;
+
+      text-align: left;
+
+      transform: rotate(var(--tilt));
+
+      transition: transform .3s ease;
+
+      background: transparent;
+
+      -webkit-tap-highlight-color: transparent;
+
+      touch-action: manipulation;
+
+      padding: 0;
+
+    }
+
+    .memory-card:hover {
+
+      transform: translateY(-7px) rotate(0deg);
+
+    }
+
+    .memory-inner {
+
+      min-height: 275px;
+
+      position: relative;
+
+      transition: transform .65s;
+
+      transform-style: preserve-3d;
+
+      -webkit-transform-style: preserve-3d;
+
+    }
+
+    .memory-card.opened .memory-inner {
+
+      transform: rotateY(180deg);
+
+      -webkit-transform: rotateY(180deg);
+
+    }
+
+    .memory-face {
+
+      position: absolute;
+
+      inset: 0;
+
+      padding: 1.7rem;
+
+      backface-visibility: hidden;
+
+      -webkit-backface-visibility: hidden;
+
+      border-radius: .45rem;
+
+      overflow: hidden;
+
+    }
+
+    .memory-back {
+
+      transform: rotateY(180deg);
+
+      -webkit-transform: rotateY(180deg);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      border: 2px dashed rgba(99,24,36,.35);
+
+    }
+
+    .memory-card.opened .memory-face {
+
+      box-shadow: 6px 9px 0 rgba(20,3,7,.24);
+
+    }
+
+    .memory-badge {
+
+      display: inline-flex;
+
+      width: 2.3rem;
+
+      height: 2.3rem;
+
+      border-radius: 50%;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: #fff5df;
+
+      background: var(--wine);
+
+      font-family: "Playfair Display", serif;
+
+      margin-bottom: 1rem;
+
+    }
+
+    .unlock-btn[disabled] {
+
+      opacity: .42;
+
+      cursor: not-allowed;
+
+      filter: grayscale(.4);
+
+    }
+
+    .music-card {
+
+      background: linear-gradient(145deg, #74192e, #370914);
+
+      box-shadow: 0 20px 45px rgba(0,0,0,.34);
+
+      border: 1px solid rgba(255,235,199,.2);
+
+    }
+
+    .envelope-zone {
+
+      max-width: 710px;
+
+      min-height: 390px;
+
+      margin: 0 auto;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+    }
+
+    .envelope {
+
+      width: min(88vw, 520px);
+
+      height: 280px;
+
+      position: relative;
+
+      cursor: pointer;
+
+      perspective: 1000px;
+
+    }
+
+    .env-body {
+
+      position: absolute;
+
+      inset: 0;
+
+      background: #e8c89a;
+
+      border-radius: 4px;
+
+      box-shadow: 0 19px 35px rgba(0,0,0,.35);
+
+      overflow: hidden;
+
+    }
+
+    .env-body::before,
+
+    .env-body::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 73%;
+
+      height: 74%;
+
+      background: #f1d7ad;
+
+      top: 39%;
+
+      transform-origin: bottom;
+
+    }
+
+    .env-body::before {
+
+      left: -18%;
+
+      transform: rotate(34deg);
+
+    }
+
+    .env-body::after {
+
+      right: -18%;
+
+      transform: rotate(-34deg);
+
+    }
+
+    .env-flap {
+
+      position: absolute;
+
+      z-index: 4;
+
+      width: 100%;
+
+      height: 55%;
+
+      background: #f0d4a8;
+
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+      transform-origin: top;
+
+      transition: transform .9s ease;
+
+      box-shadow: inset 0 -3px 11px rgba(116,60,43,.16);
+
+    }
+
+    .wax {
+
+      position: absolute;
+
+      z-index: 5;
+
+      width: 51px;
+
+      height: 51px;
+
+      border-radius: 50%;
+
+      top: 45%;
+
+      left: calc(50% - 25px);
+
+      background: #84192e;
+
+      color: #f9dbc4;
+
+      display: grid;
+
+      place-items: center;
+
+      box-shadow:
+
+        0 3px 7px rgba(0,0,0,.38),
+
+        inset 0 0 7px rgba(255,215,180,.25);
+
+      transition: opacity .4s ease;
+
+    }
+
+    .surprise-note {
+
+      position: absolute;
+
+      z-index: 3;
+
+      width: 87%;
+
+      left: 6.5%;
+
+      min-height: 230px;
+
+      bottom: 6%;
+
+      padding: 1.8rem 1.5rem;
+
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition:
+
+        transform .9s .35s ease,
+
+        opacity .7s .4s ease;
+
+      pointer-events: none;
+
+    }
+
+    .envelope.revealed .env-flap {
+
+      transform: rotateX(180deg);
+
+      z-index: 1;
+
+    }
+
+    .envelope.revealed .wax {
+
+      opacity: 0;
+
+    }
+
+    .envelope.revealed .surprise-note {
+
+      opacity: 1;
+
+      transform: translateY(-135px);
+
+      pointer-events: auto;
+
+    }
+
+    .poetry-page {
+
+      min-height: 100vh;
+
+      background: radial-gradient(
+
+        circle at 50% 40%,
+
+        #731b2e 0%,
+
+        #430b19 48%,
+
+        #21030c 100%
+
+      );
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: grid;
+
+      place-items: center;
+
+      padding: 2rem 1rem;
+
+    }
+
+    .poetry-page::before {
+
+      content: "✦  ♡  ✦  ♡  ✦";
+
+      position: absolute;
+
+      top: 8%;
+
+      color: rgba(255,224,203,.36);
+
+      letter-spacing: 1.2rem;
+
+      animation: shimmer 5s ease-in-out infinite;
+
+    }
+
+    @keyframes shimmer {
+
+      50% {
+
+        opacity: .25;
+
+        transform: translateY(9px);
+
+      }
+
+    }
+
+    .poetry-paper {
+
+      width: min(92vw, 780px);
+
+      min-height: min(74rem, 88vh);
+
+      padding: clamp(2.3rem, 7vw, 5.5rem)
+
+               clamp(1.35rem, 7vw, 5.5rem);
+
+      position: relative;
+
+      text-align: center;
+
+      box-shadow:
+
+        13px 18px 0 rgba(24,2,8,.23),
+
+        0 35px 60px rgba(0,0,0,.4),
+
+        inset 0 0 54px rgba(125,74,29,.12);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+    }
+
+    .poetry-paper::before,
+
+    .poetry-paper::after {
+
+      content: "🌹";
+
+      position: absolute;
+
+      font-size: 3rem;
+
+      filter: saturate(.8);
+
+    }
+
+    .poetry-paper::before {
+
+      top: 1rem;
+
+      left: 1.3rem;
+
+      transform: rotate(-24deg);
+
+    }
+
+    .poetry-paper::after {
+
+      bottom: 1rem;
+
+      right: 1.4rem;
+
+      transform: rotate(24deg);
+
+    }
+
+    .kiss {
+
+      position: absolute;
+
+      color: #91162e;
+
+      opacity: .75;
+
+      font-size: 2.4rem;
+
+      transform: rotate(-16deg);
+
+    }
+
+    .poetry-line {
+
+      opacity: 0;
+
+      transform: translateY(13px);
+
+      transition:
+
+        opacity 1.1s ease,
+
+        transform 1.1s ease;
+
+    }
+
+    .poetry-page.play .poetry-line.show {
+
+      opacity: 1;
+
+      transform: none;
+
+    }
+
+    .poetry-page.finale::after {
+
+      content: "♡  ♥  ♡  ♥  ♡";
+
+      color: rgba(255,220,205,.55);
+
+      position: absolute;
+
+      bottom: 5%;
+
+      letter-spacing: .8rem;
+
+      animation: fadeHearts 5s ease both;
+
+    }
+
+    @keyframes fadeHearts {
+
+      0% {
+
+        opacity: 0;
+
+        transform: translateY(16px);
+
+      }
+
+      35%,75% {
+
+        opacity: 1;
+
+      }
+
+      100% {
+
+        opacity: .3;
+
+      }
+
+    }
+
+    @media (max-width: 640px) {
+
+      .section-wrap {
+
+        padding: 4.2rem 1rem;
+
+      }
+
+      .polaroid img {
+
+        height: 14rem;
+
+      }
+
+      .envelope-zone {
+
+        min-height: 430px;
+
+      }
+
+      .envelope {
+
+        height: 240px;
+
+      }
+
+      .surprise-note {
+
+        font-size: .9rem;
+
+      }
+
+      .poetry-paper {
+
+        min-height: 680px;
+
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+
+      *::before,
+
+      *::after {
+
+        animation-duration: .01ms !important;
+
+        transition-duration: .01ms !important;
+
+        scroll-behavior: auto !important;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- OPENING -->
+
+  <header class="opening flex items-center justify-center px-5 py-10" id="opening">
+
+    <span class="float-heart text-3xl left-[11%] top-[22%]">♥</span>
+
+    <span class="float-heart text-xl right-[13%] top-[17%]">♡</span>
+
+    <span class="float-heart text-2xl left-[16%] bottom-[17%]">♥</span>
+
+    <span class="float-heart text-xl right-[18%] bottom-[18%]">♡</span>
+
+    <div class="cover-paper paper-grain torn w-full px-7 py-14 text-center sm:px-14 sm:py-20">
+
+      <span class="flower-corner -left-3 -top-7">🥀</span>
+
+      <span class="flower-corner -right-3 -bottom-7">🌹</span>
+
+      <p class="handwriting relative z-10 mb-3 text-5xl text-[#861e36] sm:text-6xl">
+
+        For My Honeyh
+
+      </p>
+
+      <h1 class="serif relative z-10 mb-5 text-5xl font-bold text-[#49101d] sm:text-6xl">
+
+        A Little Surprise
+
+      </h1>
+
+      <p class="serif relative z-10 mx-auto max-w-xl text-lg leading-8 text-[#65313a]">
+
+        A tiny scrapbook of memories, letters, smiles and everything that makes you special.
+
+      </p>
+
+      <p class="handwriting relative z-10 mt-8 text-4xl text-[#8d3445]">
+
+        Made with lots of love ♡
+
+      </p>
+
+      <button
+
+        id="open-story-button"
+
+        class="relative z-10 mt-9 inline-flex items-center gap-2 rounded-full border border-[#6f1528] bg-[#6f1528] px-6 py-3 font-semibold tracking-wide text-[#fff4df] shadow-lg transition hover:-translate-y-1 hover:bg-[#51101e]"
+
+        type="button">
+
+        OPEN OUR STORY ♡
+
+      </button>
+
+    </div>
+
+  </header>
+
+  <main id="story-shell" class="story-shell">
+
+    <!-- OUR STORY -->
+
+    <section class="section-wrap" id="our-story">
+
+      <h2 class="section-title text-4xl">
+
+        Our Story
+
+      </h2>
+
+      <div class="letter-paper paper-grain torn mx-auto max-w-3xl px-7 py-12 text-center sm:px-14">
+
+        <span class="absolute left-5 top-4 text-3xl">🖇️</span>
+
+        <span class="absolute right-7 top-5 rotate-12 text-3xl">🌷</span>
+
+        <p class="serif whitespace-pre-line text-lg leading-8 text-[#4a1e27]">
+
+          Some people enter your life quietly...
+
+          and somehow become one of the most beautiful parts of it.
+
+          This little corner is for all the memories,
+
+          laughs, moments and feelings that make our story ours. ♡
+
+        </p>
+
+        <p class="handwriting mt-8 text-4xl text-[#8a263b]">
+
+          Yours, always ♡
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- MEMORIES -->
+
+    <section class="section-wrap pt-1" aria-labelledby="memories-title">
+
+      <h2 id="memories-title" class="section-title text-4xl">
+
+        Our Memories
+
+      </h2>
+
+      <p class="section-intro">
+
+        Five little pieces of our story, kept here forever. ♡
+
+      </p>
+
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+        <figure class="polaroid rotate-[-4deg]">
+
+          <span class="tape"></span>
+
+          <img src="1.jpeg" class="canva-image" loading="lazy" alt="Memory 1">
+
+          <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
+
+            A little memory ♡
+
+          </figcaption>
+
+        </figure>
+
+        <figure class="polaroid rotate-[3deg] sm:mt-8">
+
+          <span class="tape rotate-6"></span>
+
+          <img src="2.jpeg" class="canva-image" loading="lazy" alt="Memory 2">
+
+          <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
+
+            One of my favourites ♡
+
+          </figcaption>
+
+        </figure>
+
+        <figure class="polaroid rotate-[-2deg]">
+
+          <span class="tape -rotate-6"></span>
+
+          <img src="3.jpeg" class="canva-image" loading="lazy" alt="Memory 3">
+
+          <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
+
+            Us ✨
+
+          </figcaption>
+
+        </figure>
+
+        <figure class="polaroid rotate-[4deg] lg:col-start-1">
+
+          <span class="tape rotate-3"></span>
+
+          <img src="4.jpeg" class="canva-image" loading="lazy" alt="Memory 4">
+
+          <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
+
+            Another beautiful moment ♡
+
+          </figcaption>
+
+        </figure>
+
+        <figure class="polaroid rotate-[-3deg] sm:mt-6">
+
+          <span class="tape -rotate-3"></span>
+
+          <img src="5.jpeg" class="canva-image" loading="lazy" alt="Memory 5">
+
+          <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
+
+            Forever saved 💋
+
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+    <!-- MEMORY HUNT -->
+
+    <section class="section-wrap" aria-labelledby="hunt-title">
+
+      <h2 id="hunt-title" class="section-title text-4xl">
+
+        Memory Hunt
+
+      </h2>
+
+      <p class="section-intro">
+
+        Find all three hidden memories to unlock your surprise. 🗝️
+
+      </p>
+
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-3">
+
+        <button
+
+          class="memory-card"
+
+          style="--tilt:-3deg"
+
+          type="button"
+
+          aria-pressed="false"
+
+          data-memory="beginning">
+
+          <span class="memory-inner">
+
+            <span class="memory-face paper-grain">
+
+              <span class="memory-badge">1</span>
+
+              <span class="block text-4xl">
+
+                🌷
+
+              </span>
+
+              <span class="serif mt-5 block text-2xl text-[#591221]">
+
+                The Beginning
+
+              </span>
+
+              <span class="mt-4 block text-sm italic text-[#8c5960]">
+
+                Tap to remember...
+
+              </span>
+
+            </span>
+
+            <span class="memory-face memory-back paper-grain">
+
+              <span class="serif whitespace-pre-line leading-7 text-[#511625]">
+
+                Somehow,
+
+                one little beginning
+
+                became something
+
+                I never want to lose. ♡
+
+              </span>
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+
+          class="memory-card"
+
+          style="--tilt:2deg"
+
+          type="button"
+
+          aria-pressed="false"
+
+          data-memory="laughs">
+
+          <span class="memory-inner">
+
+            <span class="memory-face paper-grain">
+
+              <span class="memory-badge">2</span>
+
+              <span class="block text-4xl">
+
+                😂
+
+              </span>
+
+              <span class="serif mt-5 block text-2xl text-[#591221]">
+
+                Our Laughs
+
+              </span>
+
+              <span class="mt-4 block text-sm italic text-[#8c5960]">
+
+                There is always something...
+
+              </span>
+
+            </span>
+
+            <span class="memory-face memory-back paper-grain">
+
+              <span class="serif whitespace-pre-line leading-7 text-[#511625]">
+
+                The laughs,
+
+                the stupid moments,
+
+                the random things...
+
+                I wouldn't trade
+
+                any of them. 🫠♡
+
+              </span>
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+
+          class="memory-card"
+
+          style="--tilt:-1deg"
+
+          type="button"
+
+          aria-pressed="false"
+
+          data-memory="connection">
+
+          <span class="memory-inner">
+
+            <span class="memory-face paper-grain">
+
+              <span class="memory-badge">3</span>
+
+              <span class="block text-4xl">
+
+                🫂
+
+              </span>
+
+              <span class="serif mt-5 block text-2xl text-[#591221]">
+
+                Our Connection
+
+              </span>
+
+              <span class="mt-4 block text-sm italic text-[#8c5960]">
+
+                One more...
+
+              </span>
+
+            </span>
+
+            <span class="memory-face memory-back paper-grain">
+
+              <span class="serif whitespace-pre-line leading-7 text-[#511625]">
+
+                Some connections
+
+                don't need explaining.
+
+                You just know
+
+                they are special. ♡
+
+              </span>
+
+            </span>
+
+          </span>
+
+        </button>
+
+      </div>
+
+      <div class="mt-10 text-center">
+
+        <p
+
+          id="hunt-status"
+
+          class="mb-5 text-[#f4d7bd]"
+
+          aria-live="polite">
+
+          0 of 3 memories discovered
+
+        </p>
+
+        <button
+
+          id="unlock-button"
+
+          class="unlock-btn rounded-full bg-[#d49191] px-7 py-3 font-semibold tracking-wide text-[#48101c] transition hover:-translate-y-1"
+
+          type="button"
+
+          disabled>
+
+          UNLOCK MY SURPRISE 🗝️
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- LETTERS -->
+
+    <section class="section-wrap pt-2" aria-labelledby="letters-title">
+
+      <h2 id="letters-title" class="section-title text-4xl">
+
+        Letters For You
+
+      </h2>
+
+      <p class="section-intro">
+
+        Two little letters I wanted you to keep. 💌
+
+      </p>
+
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-9 lg:grid-cols-2">
+
+        <!-- LETTER ONE -->
+
+        <article class="letter-paper paper-grain torn p-6 sm:p-9">
+
+          <div class="mb-5 flex items-center justify-between border-b border-[#9f5d57]/40 pb-4">
+
+            <h3 class="handwriting text-4xl text-[#7b1d32]">
+
+              TO HAROON!
+
+            </h3>
+
+            <span class="text-3xl">💌</span>
+
+          </div>
+
+          <p class="serif whitespace-pre-line break-words text-sm leading-7 text-[#481c24] sm:text-base">
+
+🫠🫠🎂✨ HAAPPY BDAY!
+
+MERYY PYARYH BCHYHH!!✨🫠🥂
+
+Haaapppiest birthdayhh yawwwrr!! ✨🍰🤏🏻🥹
+
+Meyaww kakaww bllaww o deyaww aeee!!
+
+Ooo shoneyaw moneyawww🫠🫠🫠✨
+
+kaww chahiyeh bshyhh koo??
+
+Btanaw zalooll🫠👽🎈
+
+Meryhh gudddyhh tmharyy sath rehh kr
+
+meh zindgi k maini ko jaan paii!
+
+Hr dukh mujh sy dur ho geyaww!
+
+Hrrr raaattt khoobsurat ho gii!
+
+Tmnyy meri zindgi janaat bna dallii🫠🫠✨🎈
+
+mrryhh chehry ki muskrahat
+
+oo tmm meri jawnn,
+
+mera jahaaan oo! 🫠🫠🫠✨🎈
+
+hmeshaaw saharaa bny meraa!
+
+Merii dhaaal bny,
+
+merii taqat bnnyh🫠🫠✨🎈
+
+mujh syy durrr ho kr b pas hoo!
+
+Meryhh qareeb khin dil meh rehty ho!🫠🫠✨🎈
+
+MEH CHAHTI HUN ALLAH TMHY
+
+HR KHUSHI SY NWAZYYY!!
+
+TM HMESHA HNSTY RAHOO🫠🫠✨🎈
+
+MERYY SAATH RAHO!!
+
+jldii jldii braa o jaw
+
+phil meh shy shadi v klni🫠😂🫂💋💋🤏🏻
+
+HMAAAWWWLLI DUNIYAWW SHOTII SII🫠🫠🫠💋💋🫂✨
+
+AWJJ KAA DIN BOHT SPECIAL H
+
+ISYY CELEBRATE KRNAW SHEEK EY??
+
+PYARA SHAW TYAAR HO BAHIR JAO!🫠👽👉🏻👈🏻🫠
+
+Ehehehehe! 🫠💋
+
+mekoo tsweer v bejhna apnii👽👽🤏🏻💋!!
+
+UMMMMMAWWWH HAAAPPPY BIRTHDAY! 🫠🎈🎂
+
+MELLII JAAAN KK TUKLYHH🫠🫠💋💋✨
+
+HZAAARUN SAAL JEYO 👽🫠😂✨💋!!
+
+MUAWWWHH💋💋💋🗝️🫠✨🎂🥂
+
+          </p>
+
+        </article>
+
+        <!-- LETTER TWO -->
+
+        <article class="letter-paper paper-grain torn p-6 sm:p-9">
+
+          <div class="mb-5 flex items-center justify-between border-b border-[#9f5d57]/40 pb-4">
+
+            <h3 class="handwriting text-3xl text-[#7b1d32] sm:text-4xl">
+
+              HAPPPYH BIRTHDAY MERI JAWNN!!
+
+            </h3>
+
+            <span class="text-3xl">💌</span>
+
+          </div>
+
+          <p class="serif whitespace-pre-line break-words text-sm leading-7 text-[#481c24] sm:text-base">
+
+TMHYY SALL GIRAAA MUBARAK HO!
+
+BOHT BOHT , 🫠🫠✨🤏🏻
+
+MERAA CHOTTU BRA HO GEYA!!
+
+“MERRRRRRAAAAAAA NOOOONNNEE🫠🫠✨🫂💋”
+
+MERA GUDDAH BRA HO GEYA HH🫠🫠🫂✨!!
+
+HE IS 17 KNOW!!
+
+TMYH ALLAHH NYY BEJHAW IS DUNIYA MEH !!
+
+IS DINN ✨🫠💗
+
+ITTNNY PYARYY BCHYHH KOWW🫠✨🫂
+
+YEH DIN BOWHT KHAAS HH
+
+MERYY LIYEH B OR AP K LIYEHH!!🫠✨🥂🎂
+
+AWJJ K DINN BOHTT ENJOYY KLNAW
+
+ACHY SY CELEBRATE KRO ISYY! 🫠🫠🫠💗✨✨
+
+ORR MEHH AWPP SY WADDA KRTIUN
+
+K HMESHAW TMHARY PAS TMHARY SATH
+
+HR KHUSHI OR DUKH K MOASAM MEH RHUNGII!🥹🫂✨
+
+MERII DUAW HH
+
+KBHI KOI GHAM TMHARY PAS NA AYE!
+
+KBHI YEH APNKHEIN NMM NA HO,
+
+HMESHA HUSH OR ABAD RAHO🫠✨🤏🏻
+
+APPNY WALDAIN K FRMABRADAR RAHO!
+
+OR HMESHA KAMYABI PAOO🫠🫠🫂🫂✨
+
+MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- SONG -->
+
+    <section class="section-wrap pt-2" aria-labelledby="song-title">
+
+      <div class="music-card mx-auto max-w-2xl rounded-[2rem] p-7 text-center sm:p-10">
+
+        <span class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#f6d9bc] text-[#6e1429]">
+
+          <i data-lucide="music-2" width="27" height="27"></i>
+
+        </span>
+
+        <h2 id="song-title" class="serif text-3xl text-[#fff1d9]">
+
+          A Song For You 🎵
+
+        </h2>
+
+        <p class="handwriting my-3 text-5xl text-[#f2c5ba]">
+
+          Our Song ♡
+
+        </p>
+
+        <p class="mb-6 text-sm leading-6 text-[#eac9c0]">
+
+          Tap below and listen to the song I chose for you. 🎧
+
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+
+          <button
+
+            id="spotify-button"
+
+            class="inline-flex items-center gap-2 rounded-full bg-[#f3ddbc] px-6 py-3 font-semibold text-[#541223] transition hover:-translate-y-1 hover:bg-[#fff0d5]"
+
+            type="button">
+
+            OPEN ON SPOTIFY 🎵
+
+          </button>
+
+          <button
+
+            id="music-toggle"
+
+            class="inline-flex items-center gap-2 rounded-full border border-[#f3ddbc]/70 px-6 py-3 font-semibold text-[#fff1d9] transition hover:-translate-y-1 hover:bg-[#f3ddbc]/15"
+
+            type="button"
+
+            aria-pressed="false">
+
+            <i data-lucide="volume-2" width="17" height="17"></i>
+
+            <span>PLAY AMBIENCE</span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FINAL SURPRISE -->
+
+    <section
+
+      id="final-surprise"
+
+      class="section-wrap pt-3"
+
+      aria-labelledby="surprise-title">
+
+      <h2 id="surprise-title" class="section-title text-4xl">
+
+        One Last Surprise ♡
+
+      </h2>
+
+      <p class="section-intro">
+
+        You found all three memories...
+
+        now open this little envelope. 💌
+
+      </p>
+
+      <div class="envelope-zone">
+
+        <div
+
+          id="envelope"
+
+          class="envelope"
+
+          role="button"
+
+          tabindex="0"
+
+          aria-expanded="false">
+
+          <div class="env-flap"></div>
+
+          <div class="env-body"></div>
+
+          <span class="wax">
+
+            ♥
+
+          </span>
+
+          <article class="surprise-note paper-grain torn">
+
+            <h3 class="serif mb-3 text-center text-2xl text-[#71172b]">
+
+              For My Honeyh ♡
+
+            </h3>
+
+            <p class="serif whitespace-pre-line text-center leading-6 text-[#4e1d26]">
+
+You are one of those people
+
+I want to keep in my life
+
+through every season.
+
+Thank you for every laugh,
+
+every memory,
+
+every little moment.
+
+You are special to me.
+
+Always remember that. 🫂❤️‍🩹
+
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <button
+
+          id="open-envelope-button"
+
+          class="rounded-full bg-[#f0d6b1] px-7 py-3 font-semibold text-[#641426] shadow-lg transition hover:-translate-y-1"
+
+          type="button">
+
+          OPEN THE ENVELOPE 💌
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="px-5 pb-14 pt-2 text-center">
+
+      <p class="handwriting text-3xl text-[#e6bcb2]">
+
+        Made especially for you, Honeyh ♡
+
+      </p>
+
+    </footer>
+
+    <!-- POETRY -->
+
+    <section
+
+      id="poetry-page"
+
+      class="poetry-page"
+
+      aria-labelledby="poetry-heading">
+
+      <span class="float-heart left-[9%] top-[15%] text-2xl">♡</span>
+
+      <span class="float-heart right-[10%] top-[24%] text-xl">♥</span>
+
+      <span class="float-heart bottom-[11%] left-[16%] text-xl">♥</span>
+
+      <div class="poetry-paper paper-grain torn">
+
+        <span class="kiss left-7 top-24">💋</span>
+
+        <span class="kiss bottom-20 right-8">💋</span>
+
+        <p
+
+          id="poetry-heading"
+
+          class="handwriting poetry-line mb-10 text-4xl text-[#7b1a31] sm:text-5xl">
+
+          Mere Honeyh ke naam... ❤️‍🩹
+
+        </p>
+
+        <p
+
+          id="sher-one"
+
+          class="urdu poetry-line mb-8 whitespace-pre-line text-2xl leading-[2.1] text-[#4d1723] sm:text-3xl">
+
+          میں چاہوں بھی تو وہ الفاظ نہ لکھ پاؤں
+
+          جن میں بیان ہو پائے کہ کتنی محبت ہے تم سے
+
+        </p>
+
+        <p
+
+          id="sher-two"
+
+          class="urdu poetry-line mb-9 whitespace-pre-line text-2xl leading-[2.1] text-[#4d1723] sm:text-3xl">
+
+          تم پر ختم ہوتی ہیں تمام حدیں محبت کی
+
+          تم سے، تم میں، تم پر ختم ہوتی ہے دنیا میری
+
+        </p>
+
+        <p
+
+          id="poetry-final"
+
+          class="urdu poetry-line whitespace-pre-line text-3xl font-semibold leading-[2.05] text-[#79182e] sm:text-4xl">
+
+          تم میری مسکراہٹ،
+
+          میرا سکون،
+
+          میرا جہاں ہو۔ ❤️‍🩹
+
+        </p>
+
+        <p
+
+          id="poetry-closing"
+
+          class="urdu poetry-line mt-10 text-2xl text-[#6d2733]">
+
+          ہمیشہ خوش رہو، میری دعا ہے۔ 🤍
+
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      if (window.lucide) {
+
+        lucide.createIcons();
+
+      }
+
+      /* =========================
+
+         OPENING
+
+      ========================= */
+
+      const opening = document.getElementById("opening");
+
+      const storyShell = document.getElementById("story-shell");
+
+      const openStoryButton = document.getElementById("open-story-button");
+
+      openStoryButton.addEventListener("click", () => {
+
+        opening.style.display = "none";
+
+        storyShell.classList.add("visible");
+
+        document
+
+          .getElementById("our-story")
+
+          .scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+          });
+
+      });
+
+      /* =========================
+
+         MEMORY HUNT
+
+      ========================= */
+
+      const memoryCards = [
+
+        ...document.querySelectorAll(".memory-card")
+
+      ];
+
+      const openedMemories = new Set();
+
+      const huntStatus =
+
+        document.getElementById("hunt-status");
+
+      const unlockButton =
+
+        document.getElementById("unlock-button");
+
+      function updateMemoryProgress() {
+
+        const count = openedMemories.size;
+
+        if (count === 3) {
+
+          huntStatus.textContent =
+
+            "All three memories found — your surprise is waiting. ♡";
+
+          unlockButton.disabled = false;
+
+        } else {
+
+          huntStatus.textContent =
+
+            `${count} of 3 memories discovered`;
+
+        }
+
+      }
+
+      memoryCards.forEach((card) => {
+
+        card.addEventListener("click", () => {
+
+          const memory = card.dataset.memory;
+
+          if (!card.classList.contains("opened")) {
+
+            card.classList.add("opened");
+
+            card.setAttribute(
+
+              "aria-pressed",
+
+              "true"
+
+            );
+
+            openedMemories.add(memory);
+
+            updateMemoryProgress();
+
+          }
+
+        });
+
+      });
+
+      unlockButton.addEventListener("click", () => {
+
+        if (!unlockButton.disabled) {
+
+          document
+
+            .getElementById("final-surprise")
+
+            .scrollIntoView({
+
+              behavior: "smooth",
+
+              block: "center"
+
+            });
+
+        }
+
+      });
+
+      /* =========================
+
+         ENVELOPE
+
+      ========================= */
+
+      const envelope =
+
+        document.getElementById("envelope");
+
+      const openEnvelopeButton =
+
+        document.getElementById("open-envelope-button");
+
+      function revealEnvelope() {
+
+        if (envelope.classList.contains("revealed")) {
+
+          return;
+
+        }
+
+        envelope.classList.add("revealed");
+
+        envelope.setAttribute(
+
+          "aria-expanded",
+
+          "true"
+
+        );
+
+        openEnvelopeButton.disabled = true;
+
+      }
+
+      envelope.addEventListener(
+
+        "click",
+
+        revealEnvelope
+
+      );
+
+      envelope.addEventListener(
+
+        "keydown",
+
+        (event) => {
+
+          if (
+
+            event.key === "Enter" ||
+
+            event.key === " "
+
+          ) {
+
+            event.preventDefault();
+
+            revealEnvelope();
+
+          }
+
+        }
+
+      );
+
+      openEnvelopeButton.addEventListener(
+
+        "click",
+
+        revealEnvelope
+
+      );
+
+      /* =========================
+
+         AMBIENCE
+
+      ========================= */
+
+      const musicToggle =
+
+        document.getElementById("music-toggle");
+
+      let audioContext;
+
+      let ambienceGain;
+
+      let ambienceNodes = [];
+
+      function stopAmbience() {
+
+        ambienceNodes.forEach((node) => {
+
+          try {
+
+            node.stop();
+
+          } catch (error) {}
+
+        });
+
+        ambienceNodes = [];
+
+        if (ambienceGain) {
+
+          ambienceGain.disconnect();
+
+        }
+
+        musicToggle.setAttribute(
+
+          "aria-pressed",
+
+          "false"
+
+        );
+
+        musicToggle.querySelector("span").textContent =
+
+          "PLAY AMBIENCE";
+
+      }
+
+      function startAmbience() {
+
+        const AudioContext =
+
+          window.AudioContext ||
+
+          window.webkitAudioContext;
+
+        if (!AudioContext) {
+
+          return;
+
+        }
+
+        audioContext =
+
+          audioContext ||
+
+          new AudioContext();
+
+        audioContext.resume();
+
+        ambienceGain =
+
+          audioContext.createGain();
+
+        ambienceGain.gain.setValueAtTime(
+
+          0,
+
+          audioContext.currentTime
+
+        );
+
+        ambienceGain.gain.linearRampToValueAtTime(
+
+          0.035,
+
+          audioContext.currentTime + 1.2
+
+        );
+
+        ambienceGain.connect(
+
+          audioContext.destination
+
+        );
+
+        [261.63, 329.63, 392].forEach(
+
+          (frequency, index) => {
+
+            const oscillator =
+
+              audioContext.createOscillator();
+
+            oscillator.type = "sine";
+
+            oscillator.frequency.value =
+
+              frequency;
+
+            oscillator.detune.value =
+
+              index * 3;
+
+            oscillator.connect(
+
+              ambienceGain
+
+            );
+
+            oscillator.start();
+
+            ambienceNodes.push(
+
+              oscillator
+
+            );
+
+          }
+
+        );
+
+        musicToggle.setAttribute(
+
+          "aria-pressed",
+
+          "true"
+
+        );
+
+        musicToggle.querySelector("span").textContent =
+
+          "MUTE AMBIENCE";
+
+      }
+
+      musicToggle.addEventListener(
+
+        "click",
+
+        () => {
+
+          if (
+
+            musicToggle.getAttribute(
+
+              "aria-pressed"
+
+            ) === "true"
+
+          ) {
+
+            stopAmbience();
+
+          } else {
+
+            startAmbience();
+
+          }
+
+        }
+
+      );
+
+      /* =========================
+
+         SPOTIFY
+
+      ========================= */
+
+      document
+
+        .getElementById("spotify-button")
+
+        .addEventListener("click", () => {
+
+          const spotifyLink =
+
+            document.createElement("a");
+
+          spotifyLink.href =
+
+            "https://open.spotify.com/track/6okXGyZjrasNITqJbkgcEa?si=CfdhREI-RNSXEHV7f9bbPQ&utm_source=copy-link";
+
+          spotifyLink.target = "_blank";
+
+          spotifyLink.rel =
+
+            "noopener noreferrer";
+
+          document.body.appendChild(
+
+            spotifyLink
+
+          );
+
+          spotifyLink.click();
+
+          spotifyLink.remove();
+
+        });
+
+      /* =========================
+
+         POETRY ANIMATION
+
+      ========================= */
+
+      const poetryPage =
+
+        document.getElementById("poetry-page");
+
+      const poetryLines = [
+
+        document.getElementById("poetry-heading"),
+
+        document.getElementById("sher-one"),
+
+        document.getElementById("sher-two"),
+
+        document.getElementById("poetry-final"),
+
+        document.getElementById("poetry-closing")
+
+      ];
+
+      if ("IntersectionObserver" in window) {
+
+        const poetryObserver =
+
+          new IntersectionObserver(
+
+            (entries) => {
+
+              if (
+
+                !entries[0].isIntersecting
+
+              ) {
+
+                return;
+
+              }
+
+              poetryPage.classList.add(
+
+                "play"
+
+              );
+
+              poetryLines.forEach(
+
+                (line, index) => {
+
+                  setTimeout(
+
+                    () => {
+
+                      line.classList.add(
+
+                        "show"
+
+                      );
+
+                    },
+
+                    700 + index * 2400
+
+                  );
+
+                }
+
+              );
+
+              setTimeout(
+
+                () => {
+
+                  poetryPage.classList.add(
+
+                    "finale"
+
+                  );
+
+                },
+
+                12700
+
+              );
+
+              poetryObserver.disconnect();
+
+            },
+
+            {
+
+              threshold: 0.25
+
+            }
+
+          );
+
+        poetryObserver.observe(
+
+          poetryPage
+
+        );
+
+      } else {
+
+        poetryPage.classList.add(
+
+          "play"
+
+        );
+
+        poetryLines.forEach(
+
+          (line) => {
+
+            line.classList.add("show");
+
+          }
+
+        );
+
+      }
+
     });
-  }
-});
-function revealEnvelope() {
-  if (foundMemories.size !== 3) {
-    return;
-  }
-  envelope.classList.add("revealed");
-  envelope.setAttribute("aria-expanded", "true");
-  finalMessage.classList.add("show");
-  openEnvelopeButton.disabled = true;
-  openEnvelopeButton.textContent = "Opened with love ❤️";
-}
-openEnvelopeButton.addEventListener("click", revealEnvelope);
-envelope.addEventListener("click", revealEnvelope);
-envelope.addEventListener("keydown", function(event) {
-  if (event.key === "Enter" || event.key === " ") {
-    event.preventDefault();
-    revealEnvelope();
-  }
-});
-</script>
+
+  </script>
+
 </body>
+
 </html>
