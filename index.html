@@ -39,8 +39,7 @@
       background-color: var(--deep-wine);
     }
 
-    button,
-    a {
+    button, a {
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -298,13 +297,10 @@
       transform: rotate(-3deg);
     }
 
-    /* =========================
-       MEMORY HUNT - IPAD FIX
-    ========================= */
+    /* MEMORY HUNT */
 
     .memory-card {
       min-height: 275px;
-      height: 275px;
       cursor: pointer;
       border: 0;
       position: relative;
@@ -317,8 +313,7 @@
       padding: 0;
       width: 100%;
       display: block;
-      perspective: 1000px;
-      -webkit-perspective: 1000px;
+      color: inherit;
     }
 
     .memory-card:hover {
@@ -326,13 +321,13 @@
     }
 
     .memory-inner {
-      width: 100%;
-      height: 275px;
+      min-height: 275px;
       position: relative;
-      transition: transform .65s ease;
+      width: 100%;
+      display: block;
+      transition: transform .65s;
       transform-style: preserve-3d;
       -webkit-transform-style: preserve-3d;
-      -webkit-backface-visibility: visible;
     }
 
     .memory-card.opened .memory-inner {
@@ -345,19 +340,24 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      min-height: 275px;
       padding: 1.7rem;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       border-radius: .45rem;
       overflow: hidden;
+      background-color: var(--paper);
+      display: block;
     }
 
     .memory-front {
+      z-index: 2;
       transform: rotateY(0deg);
       -webkit-transform: rotateY(0deg);
     }
 
     .memory-back {
+      z-index: 1;
       transform: rotateY(180deg);
       -webkit-transform: rotateY(180deg);
       display: flex;
@@ -390,25 +390,6 @@
       filter: grayscale(.4);
     }
 
-    .unlock-btn:not([disabled]) {
-      cursor: pointer;
-      animation: unlockPulse 1.7s ease-in-out infinite;
-    }
-
-    @keyframes unlockPulse {
-      0%,100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.045);
-      }
-    }
-
-    /* =========================
-       MUSIC
-    ========================= */
-
     .music-card {
       background: linear-gradient(145deg, #74192e, #370914);
       box-shadow: 0 20px 45px rgba(0,0,0,.34);
@@ -421,6 +402,16 @@
       line-height: 1.5;
       max-width: 480px;
       margin: 0 auto 1.2rem;
+    }
+
+    /* Hidden song player */
+    #our-song {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      left: -9999px;
     }
 
     .envelope-zone {
@@ -531,10 +522,6 @@
       transform: translateY(-135px);
       pointer-events: auto;
     }
-
-    /* =========================
-       POETRY
-    ========================= */
 
     .poetry-page {
       min-height: 100vh;
@@ -682,9 +669,15 @@
         min-height: 680px;
       }
 
-      .memory-card,
+      .memory-card {
+        min-height: 275px;
+      }
+
       .memory-inner {
-        height: 275px;
+        min-height: 275px;
+      }
+
+      .memory-face {
         min-height: 275px;
       }
     }
@@ -698,6 +691,7 @@
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
       }
+
     }
   </style>
 </head>
@@ -705,14 +699,18 @@
 <body>
 
   <!-- OPENING -->
-  <header class="opening flex items-center justify-center px-5 py-10" id="opening">
+
+  <header
+    class="opening flex items-center justify-center px-5 py-10"
+    id="opening">
 
     <span class="float-heart text-3xl left-[11%] top-[22%]">♥</span>
     <span class="float-heart text-xl right-[13%] top-[17%]">♡</span>
     <span class="float-heart text-2xl left-[16%] bottom-[17%]">♥</span>
     <span class="float-heart text-xl right-[18%] bottom-[18%]">♡</span>
 
-    <div class="cover-paper paper-grain torn w-full px-7 py-14 text-center sm:px-14 sm:py-20">
+    <div
+      class="cover-paper paper-grain torn w-full px-7 py-14 text-center sm:px-14 sm:py-20">
 
       <span class="flower-corner -left-3 -top-7">🥀</span>
       <span class="flower-corner -right-3 -bottom-7">🌹</span>
@@ -743,26 +741,31 @@
     </div>
   </header>
 
+
   <main id="story-shell" class="story-shell">
 
     <!-- OUR STORY -->
-    <section class="section-wrap" id="our-story">
+
+    <section
+      class="section-wrap"
+      id="our-story">
 
       <h2 class="section-title text-4xl">
         Our Story
       </h2>
 
-      <div class="letter-paper paper-grain torn mx-auto max-w-3xl px-7 py-12 text-center sm:px-14">
+      <div
+        class="letter-paper paper-grain torn mx-auto max-w-3xl px-7 py-12 text-center sm:px-14">
 
         <span class="absolute left-5 top-4 text-3xl">🖇️</span>
         <span class="absolute right-7 top-5 rotate-12 text-3xl">🌷</span>
 
         <p class="serif whitespace-pre-line text-lg leading-8 text-[#4a1e27]">
-          Some people enter your life quietly...
-          and somehow become one of the most beautiful parts of it.
+Some people enter your life quietly...
+and somehow become one of the most beautiful parts of it.
 
-          This little corner is for all the memories,
-          laughs, moments and feelings that make our story ours. ♡
+This little corner is for all the memories,
+laughs, moments and feelings that make our story ours. ♡
         </p>
 
         <p class="handwriting mt-8 text-4xl text-[#8a263b]">
@@ -772,10 +775,16 @@
       </div>
     </section>
 
-    <!-- MEMORIES -->
-    <section class="section-wrap pt-1" aria-labelledby="memories-title">
 
-      <h2 id="memories-title" class="section-title text-4xl">
+    <!-- MEMORIES -->
+
+    <section
+      class="section-wrap pt-1"
+      aria-labelledby="memories-title">
+
+      <h2
+        id="memories-title"
+        class="section-title text-4xl">
         Our Memories
       </h2>
 
@@ -788,38 +797,47 @@
         <figure class="polaroid rotate-[-4deg]">
           <span class="tape"></span>
           <img src="./1.jpeg" class="canva-image" loading="lazy" alt="Memory 1">
+
           <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
             A little memory ♡
           </figcaption>
         </figure>
 
+
         <figure class="polaroid rotate-[3deg] sm:mt-8">
           <span class="tape rotate-6"></span>
           <img src="./2.jpeg" class="canva-image" loading="lazy" alt="Memory 2">
+
           <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
             One of my favourites ♡
           </figcaption>
         </figure>
 
+
         <figure class="polaroid rotate-[-2deg]">
           <span class="tape -rotate-6"></span>
           <img src="./3.jpeg" class="canva-image" loading="lazy" alt="Memory 3">
+
           <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
             Us ✨
           </figcaption>
         </figure>
 
+
         <figure class="polaroid rotate-[4deg] lg:col-start-1">
           <span class="tape rotate-3"></span>
           <img src="./4.jpeg" class="canva-image" loading="lazy" alt="Memory 4">
+
           <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
             Another beautiful moment ♡
           </figcaption>
         </figure>
 
+
         <figure class="polaroid rotate-[-3deg] sm:mt-6">
           <span class="tape -rotate-3"></span>
           <img src="./5.jpeg" class="canva-image" loading="lazy" alt="Memory 5">
+
           <figcaption class="handwriting mt-3 text-center text-3xl text-[#6e2434]">
             Forever saved 💋
           </figcaption>
@@ -828,10 +846,16 @@
       </div>
     </section>
 
-    <!-- MEMORY HUNT -->
-    <section class="section-wrap" aria-labelledby="hunt-title">
 
-      <h2 id="hunt-title" class="section-title text-4xl">
+    <!-- MEMORY HUNT -->
+
+    <section
+      class="section-wrap"
+      aria-labelledby="hunt-title">
+
+      <h2
+        id="hunt-title"
+        class="section-title text-4xl">
         Memory Hunt
       </h2>
 
@@ -840,6 +864,7 @@
       </p>
 
       <div class="mx-auto grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-3">
+
 
         <!-- MEMORY 1 -->
 
@@ -854,7 +879,9 @@
 
             <span class="memory-face memory-front paper-grain">
 
-              <span class="memory-badge">1</span>
+              <span class="memory-badge">
+                1
+              </span>
 
               <span class="block text-4xl">
                 🌷✨
@@ -874,19 +901,20 @@
 
             </span>
 
+
             <span class="memory-face memory-back paper-grain">
 
               <span class="serif whitespace-pre-line leading-7 text-[#511625]">
-                🌷 YOU FOUND IT! 🌷
+🌷 YOU FOUND IT! 🌷
 
-                One little beginning...
-                one tiny connection...
+One little beginning...
+one tiny connection...
 
-                and somehow it became
-                one of my favourite parts
-                of life. ♡
+and somehow it became
+one of my favourite parts
+of life. ♡
 
-                MEMORY #1 FOUND 🗝️
+MEMORY #1 FOUND 🗝️
               </span>
 
             </span>
@@ -894,6 +922,7 @@
           </span>
 
         </button>
+
 
         <!-- MEMORY 2 -->
 
@@ -908,7 +937,9 @@
 
             <span class="memory-face memory-front paper-grain">
 
-              <span class="memory-badge">2</span>
+              <span class="memory-badge">
+                2
+              </span>
 
               <span class="block text-4xl">
                 😂🫠
@@ -928,23 +959,24 @@
 
             </span>
 
+
             <span class="memory-face memory-back paper-grain">
 
               <span class="serif whitespace-pre-line leading-7 text-[#511625]">
-                😂 CONGRATULATIONS 😂
+😂 CONGRATULATIONS 😂
 
-                The random talks.
-                The stupid jokes.
-                The nonsense.
+The random talks.
+The stupid jokes.
+The nonsense.
 
-                The moments where
-                we laugh for absolutely
-                NO reason. 😭🫠
+The moments where
+we laugh for absolutely
+NO reason. 😭🫠
 
-                Wouldn't trade them
-                for anything. ♡
+Wouldn't trade them
+for anything. ♡
 
-                MEMORY #2 FOUND 🗝️
+MEMORY #2 FOUND 🗝️
               </span>
 
             </span>
@@ -952,6 +984,7 @@
           </span>
 
         </button>
+
 
         <!-- MEMORY 3 -->
 
@@ -966,7 +999,9 @@
 
             <span class="memory-face memory-front paper-grain">
 
-              <span class="memory-badge">3</span>
+              <span class="memory-badge">
+                3
+              </span>
 
               <span class="block text-4xl">
                 🫂❤️‍🩹
@@ -986,22 +1021,23 @@
 
             </span>
 
+
             <span class="memory-face memory-back paper-grain">
 
               <span class="serif whitespace-pre-line leading-7 text-[#511625]">
-                🫂 YOU FOUND THE LAST ONE 🫂
+🫂 YOU FOUND THE LAST ONE 🫂
 
-                Some people become
-                memories...
+Some people become
+memories...
 
-                and some people become
-                HOME. ❤️‍🩹
+and some people become
+HOME. ❤️‍🩹
 
-                No matter how far,
-                some connections
-                simply stay close.
+No matter how far,
+some connections
+simply stay close.
 
-                MEMORY #3 FOUND 🗝️
+MEMORY #3 FOUND 🗝️
               </span>
 
             </span>
@@ -1012,6 +1048,7 @@
 
       </div>
 
+
       <div class="mt-10 text-center">
 
         <p
@@ -1020,6 +1057,7 @@
           aria-live="polite">
           0 of 3 memories discovered 👀
         </p>
+
 
         <button
           id="unlock-button"
@@ -1033,10 +1071,16 @@
 
     </section>
 
-    <!-- LETTERS -->
-    <section class="section-wrap pt-2" aria-labelledby="letters-title">
 
-      <h2 id="letters-title" class="section-title text-4xl">
+    <!-- LETTERS -->
+
+    <section
+      class="section-wrap pt-2"
+      aria-labelledby="letters-title">
+
+      <h2
+        id="letters-title"
+        class="section-title text-4xl">
         Letters For You
       </h2>
 
@@ -1044,9 +1088,12 @@
         Two little letters I wanted you to keep. 💌
       </p>
 
+
       <div class="mx-auto grid max-w-6xl grid-cols-1 gap-9 lg:grid-cols-2">
 
+
         <!-- LETTER ONE -->
+
         <article class="letter-paper paper-grain torn p-6 sm:p-9">
 
           <div class="mb-5 flex items-center justify-between border-b border-[#9f5d57]/40 pb-4">
@@ -1055,9 +1102,12 @@
               TO HAROON!
             </h3>
 
-            <span class="text-3xl">💌</span>
+            <span class="text-3xl">
+              💌
+            </span>
 
           </div>
+
 
           <p class="serif whitespace-pre-line break-words text-sm leading-7 text-[#481c24] sm:text-base">
 🫠🫠🎂✨ HAAPPY BDAY!
@@ -1114,7 +1164,9 @@ MUAWWWHH💋💋💋🗝️🫠✨🎂🥂
 
         </article>
 
+
         <!-- LETTER TWO -->
+
         <article class="letter-paper paper-grain torn p-6 sm:p-9">
 
           <div class="mb-5 flex items-center justify-between border-b border-[#9f5d57]/40 pb-4">
@@ -1123,9 +1175,12 @@ MUAWWWHH💋💋💋🗝️🫠✨🎂🥂
               HAPPPYH BIRTHDAY MERI JAWNN!!
             </h3>
 
-            <span class="text-3xl">💌</span>
+            <span class="text-3xl">
+              💌
+            </span>
 
           </div>
+
 
           <p class="serif whitespace-pre-line break-words text-sm leading-7 text-[#481c24] sm:text-base">
 TMHYY SALL GIRAAA MUBARAK HO!
@@ -1167,39 +1222,57 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
         </article>
 
       </div>
+
     </section>
 
-    <!-- SONG -->
-    <section class="section-wrap pt-2" aria-labelledby="song-title">
 
-      <div class="music-card mx-auto max-w-2xl rounded-[2rem] p-7 text-center sm:p-10">
+    <!-- SONG -->
+
+    <section
+      class="section-wrap pt-2"
+      aria-labelledby="song-title">
+
+      <div
+        class="music-card mx-auto max-w-2xl rounded-[2rem] p-7 text-center sm:p-10">
 
         <span class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#f6d9bc] text-[#6e1429]">
           <i data-lucide="music-2" width="27" height="27"></i>
         </span>
 
-        <h2 id="song-title" class="serif text-3xl text-[#fff1d9]">
+
+        <h2
+          id="song-title"
+          class="serif text-3xl text-[#fff1d9]">
           A Song For You 🎵
         </h2>
+
 
         <p class="handwriting my-3 text-5xl text-[#f2c5ba]">
           Our Song ♡
         </p>
 
+
         <p class="mb-3 text-sm leading-6 text-[#eac9c0]">
           This one is especially for you. 🎧
         </p>
+
 
         <p class="spotify-note">
           Spotify/iPad may require one tap before music can play.
           That's a browser restriction — not a problem with your website. ♡
         </p>
 
-        <!-- YOUR ACTUAL SONG FILE -->
-        <audio id="our-song" preload="metadata">
-          <source src="./song.mp4" type="video/mp4">
-          Your browser does not support audio.
-        </audio>
+
+        <!-- ACTUAL SONG FILE -->
+
+        <video
+          id="our-song"
+          src="./song.mp4"
+          preload="auto"
+          playsinline
+          webkit-playsinline>
+        </video>
+
 
         <div class="flex flex-wrap items-center justify-center gap-3">
 
@@ -1210,6 +1283,7 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
             OPEN OUR SONG 🎵
           </button>
 
+
           <button
             id="music-toggle"
             class="inline-flex items-center gap-2 rounded-full border border-[#f3ddbc]/70 px-6 py-3 font-semibold text-[#fff1d9] transition hover:-translate-y-1 hover:bg-[#f3ddbc]/15"
@@ -1217,7 +1291,10 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
             aria-pressed="false">
 
             <i data-lucide="volume-2" width="17" height="17"></i>
-            <span>PLAY OUR SONG 🎵</span>
+
+            <span>
+              PLAY OUR SONG 🎵
+            </span>
 
           </button>
 
@@ -1227,13 +1304,17 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
 
     </section>
 
+
     <!-- FINAL SURPRISE -->
+
     <section
       id="final-surprise"
       class="section-wrap pt-3"
       aria-labelledby="surprise-title">
 
-      <h2 id="surprise-title" class="section-title text-4xl">
+      <h2
+        id="surprise-title"
+        class="section-title text-4xl">
         One Last Surprise ♡
       </h2>
 
@@ -1241,6 +1322,7 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
         You found all three memories...
         now open this little envelope. 💌
       </p>
+
 
       <div class="envelope-zone">
 
@@ -1254,15 +1336,18 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
           <div class="env-flap"></div>
           <div class="env-body"></div>
 
+
           <span class="wax">
             ♥
           </span>
+
 
           <article class="surprise-note paper-grain torn">
 
             <h3 class="serif mb-3 text-center text-2xl text-[#71172b]">
               For My Honeyh ♡
             </h3>
+
 
             <p class="serif whitespace-pre-line text-center leading-6 text-[#4e1d26]">
 You are one of those people
@@ -1283,6 +1368,7 @@ Always remember that. 🫂❤️‍🩹
 
       </div>
 
+
       <div class="text-center">
 
         <button
@@ -1296,7 +1382,9 @@ Always remember that. 🫂❤️‍🩹
 
     </section>
 
+
     <!-- FOOTER -->
+
     <footer class="px-5 pb-14 pt-2 text-center">
 
       <p class="handwriting text-3xl text-[#e6bcb2]">
@@ -1305,7 +1393,9 @@ Always remember that. 🫂❤️‍🩹
 
     </footer>
 
+
     <!-- POETRY -->
+
     <section
       id="poetry-page"
       class="poetry-page"
@@ -1315,10 +1405,17 @@ Always remember that. 🫂❤️‍🩹
       <span class="float-heart right-[10%] top-[24%] text-xl">♥</span>
       <span class="float-heart bottom-[11%] left-[16%] text-xl">♥</span>
 
+
       <div class="poetry-paper paper-grain torn">
 
-        <span class="kiss left-7 top-24">💋</span>
-        <span class="kiss bottom-20 right-8">💋</span>
+        <span class="kiss left-7 top-24">
+          💋
+        </span>
+
+        <span class="kiss bottom-20 right-8">
+          💋
+        </span>
+
 
         <p
           id="poetry-heading"
@@ -1326,32 +1423,36 @@ Always remember that. 🫂❤️‍🩹
           Mere Honeyh ke naam... ❤️‍🩹
         </p>
 
+
         <p
           id="sher-one"
           class="urdu poetry-line mb-8 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl">
-          میں چاہوں بھی تو وہ الفاظ نہ لکھ پاؤں
-          جن میں بیان ہو پائے کہ کتنی محبت ہے تم سے
+میں چاہوں بھی تو وہ الفاظ نہ لکھ پاؤں
+جن میں بیان ہو پائے کہ کتنی محبت ہے تم سے
         </p>
+
 
         <p
           id="sher-two"
           class="urdu poetry-line mb-9 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl">
-          تم پر ختم ہوتی ہیں تمام حدیں محبت کی
-          تم سے، تم میں، تم پر ختم ہوتی ہے دنیا میری
+تم پر ختم ہوتی ہیں تمام حدیں محبت کی
+تم سے، تم میں، تم پر ختم ہوتی ہے دنیا میری
         </p>
+
 
         <p
           id="poetry-final"
           class="urdu poetry-line whitespace-pre-line text-3xl font-semibold leading-[2.05] sm:text-4xl">
-          تم میری مسکراہٹ،
-          میرا سکون،
-          میرا جہاں ہو۔ ❤️‍🩹
+تم میری مسکراہٹ،
+میرا سکون،
+میرا جہاں ہو۔ ❤️‍🩹
         </p>
+
 
         <p
           id="poetry-closing"
           class="urdu poetry-line mt-10 text-2xl">
-          ہمیشہ خوش رہو، میری دعا ہے۔ 🤍
+ہمیشہ خوش رہو، میری دعا ہے۔ 🤍
         </p>
 
       </div>
@@ -1359,6 +1460,7 @@ Always remember that. 🫂❤️‍🩹
     </section>
 
   </main>
+
 
   <script>
 
@@ -1371,6 +1473,7 @@ Always remember that. 🫂❤️‍🩹
       if (window.lucide) {
         lucide.createIcons();
       }
+
 
       /* =========================
          OPEN STORY
@@ -1385,33 +1488,38 @@ Always remember that. 🫂❤️‍🩹
       const openStoryButton =
         document.getElementById("open-story-button");
 
-      function openStory() {
+      function openOurStory() {
 
         opening.style.display = "none";
 
         storyShell.classList.add("visible");
 
-        setTimeout(() => {
+        const ourStory =
+          document.getElementById("our-story");
 
-          document
-            .getElementById("our-story")
-            .scrollIntoView({
+        if (ourStory) {
+
+          setTimeout(() => {
+
+            ourStory.scrollIntoView({
               behavior: "smooth",
               block: "start"
             });
 
-        }, 100);
+          }, 50);
+
+        }
 
       }
 
       openStoryButton.addEventListener(
         "click",
-        openStory
+        openOurStory
       );
+
 
       /* =========================
          MEMORY HUNT
-         SAFARI / IPAD SAFE
       ========================= */
 
       const memoryCards =
@@ -1428,10 +1536,12 @@ Always remember that. 🫂❤️‍🩹
       const unlockButton =
         document.getElementById("unlock-button");
 
+
       function updateMemoryProgress() {
 
         const count =
           openedMemories.size;
+
 
         if (count >= 3) {
 
@@ -1457,64 +1567,62 @@ Always remember that. 🫂❤️‍🩹
 
       }
 
+
       memoryCards.forEach((card) => {
 
-        card.addEventListener("click", function(event) {
+        card.addEventListener(
+          "click",
+          (event) => {
 
-          event.preventDefault();
+            event.preventDefault();
 
-          const memory =
-            card.getAttribute("data-memory");
+            const memory =
+              card.getAttribute("data-memory");
 
-          if (!memory) {
-            return;
+
+            if (!card.classList.contains("opened")) {
+
+              card.classList.add("opened");
+
+              card.setAttribute(
+                "aria-pressed",
+                "true"
+              );
+
+              openedMemories.add(memory);
+
+              updateMemoryProgress();
+
+            }
+
+          },
+          {
+            passive: false
           }
-
-          if (
-            !card.classList.contains("opened")
-          ) {
-
-            card.classList.add("opened");
-
-            card.setAttribute(
-              "aria-pressed",
-              "true"
-            );
-
-            openedMemories.add(memory);
-
-            updateMemoryProgress();
-
-          }
-
-        });
+        );
 
       });
 
-      updateMemoryProgress();
 
       unlockButton.addEventListener(
         "click",
-        function(event) {
+        () => {
 
-          event.preventDefault();
+          if (openedMemories.size === 3) {
 
-          if (openedMemories.size < 3) {
-            return;
+            const finalSurprise =
+              document.getElementById("final-surprise");
+
+            finalSurprise.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
           }
-
-          const finalSurprise =
-            document.getElementById(
-              "final-surprise"
-            );
-
-          finalSurprise.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
 
         }
       );
+
 
       /* =========================
          ENVELOPE
@@ -1524,38 +1632,43 @@ Always remember that. 🫂❤️‍🩹
         document.getElementById("envelope");
 
       const openEnvelopeButton =
-        document.getElementById(
-          "open-envelope-button"
-        );
+        document.getElementById("open-envelope-button");
+
 
       function revealEnvelope() {
 
         if (
-          envelope.classList.contains(
-            "revealed"
-          )
+          envelope.classList.contains("revealed")
         ) {
+
           return;
+
         }
 
-        envelope.classList.add("revealed");
+
+        envelope.classList.add(
+          "revealed"
+        );
 
         envelope.setAttribute(
           "aria-expanded",
           "true"
         );
 
-        openEnvelopeButton.disabled = true;
+        openEnvelopeButton.disabled =
+          true;
 
         openEnvelopeButton.textContent =
           "ENVELOPE OPENED 💌";
 
       }
 
+
       envelope.addEventListener(
         "click",
         revealEnvelope
       );
+
 
       envelope.addEventListener(
         "keydown",
@@ -1575,10 +1688,12 @@ Always remember that. 🫂❤️‍🩹
         }
       );
 
+
       openEnvelopeButton.addEventListener(
         "click",
         revealEnvelope
       );
+
 
       /* =========================
          ACTUAL SONG
@@ -1594,6 +1709,7 @@ Always remember that. 🫂❤️‍🩹
         document.getElementById(
           "our-song"
         );
+
 
       async function playOurSong() {
 
@@ -1613,6 +1729,11 @@ Always remember that. 🫂❤️‍🩹
 
         } catch (error) {
 
+          console.log(
+            "Song playback error:",
+            error
+          );
+
           musicToggle.setAttribute(
             "aria-pressed",
             "false"
@@ -1621,16 +1742,12 @@ Always remember that. 🫂❤️‍🩹
           musicToggle.querySelector(
             "span"
           ).textContent =
-            "TAP TO PLAY 🎵";
-
-          console.log(
-            "Song could not start:",
-            error
-          );
+            "TAP AGAIN TO PLAY 🎵";
 
         }
 
       }
+
 
       function pauseOurSong() {
 
@@ -1647,6 +1764,7 @@ Always remember that. 🫂❤️‍🩹
           "PLAY OUR SONG 🎵";
 
       }
+
 
       musicToggle.addEventListener(
         "click",
@@ -1665,6 +1783,7 @@ Always remember that. 🫂❤️‍🩹
         }
       );
 
+
       songAudio.addEventListener(
         "ended",
         () => {
@@ -1682,6 +1801,7 @@ Always remember that. 🫂❤️‍🩹
         }
       );
 
+
       /* =========================
          SPOTIFY
       ========================= */
@@ -1690,6 +1810,7 @@ Always remember that. 🫂❤️‍🩹
         document.getElementById(
           "spotify-button"
         );
+
 
       spotifyButton.addEventListener(
         "click",
@@ -1707,6 +1828,7 @@ Always remember that. 🫂❤️‍🩹
         }
       );
 
+
       /* =========================
          PHOTO ERROR CHECK
       ========================= */
@@ -1715,6 +1837,7 @@ Always remember that. 🫂❤️‍🩹
         document.querySelectorAll(
           ".canva-image"
         );
+
 
       photos.forEach((photo) => {
 
@@ -1733,6 +1856,7 @@ Always remember that. 🫂❤️‍🩹
 
       });
 
+
       /* =========================
          POETRY ANIMATION
       ========================= */
@@ -1741,6 +1865,7 @@ Always remember that. 🫂❤️‍🩹
         document.getElementById(
           "poetry-page"
         );
+
 
       const poetryLines = [
 
@@ -1766,53 +1891,6 @@ Always remember that. 🫂❤️‍🩹
 
       ];
 
-      let poetryStarted = false;
-
-      function playPoetry() {
-
-        if (poetryStarted) {
-          return;
-        }
-
-        poetryStarted = true;
-
-        poetryPage.classList.add(
-          "play"
-        );
-
-        poetryLines.forEach(
-          (line, index) => {
-
-            if (!line) {
-              return;
-            }
-
-            setTimeout(
-              () => {
-
-                line.classList.add(
-                  "show"
-                );
-
-              },
-              500 + index * 2200
-            );
-
-          }
-        );
-
-        setTimeout(
-          () => {
-
-            poetryPage.classList.add(
-              "finale"
-            );
-
-          },
-          11500
-        );
-
-      }
 
       if (
         "IntersectionObserver" in window
@@ -1823,23 +1901,61 @@ Always remember that. 🫂❤️‍🩹
             (entries) => {
 
               if (
-                entries.some(
-                  entry =>
-                    entry.isIntersecting
-                )
+                !entries[0].isIntersecting
               ) {
 
-                playPoetry();
-
-                poetryObserver.disconnect();
+                return;
 
               }
 
+
+              poetryPage.classList.add(
+                "play"
+              );
+
+
+              poetryLines.forEach(
+                (line, index) => {
+
+                  setTimeout(
+                    () => {
+
+                      if (line) {
+
+                        line.classList.add(
+                          "show"
+                        );
+
+                      }
+
+                    },
+                    700 + index * 2400
+                  );
+
+                }
+              );
+
+
+              setTimeout(
+                () => {
+
+                  poetryPage.classList.add(
+                    "finale"
+                  );
+
+                },
+                12700
+              );
+
+
+              poetryObserver.disconnect();
+
             },
             {
-              threshold: 0.15
+              threshold: 0.25
             }
           );
+
 
         poetryObserver.observe(
           poetryPage
@@ -1847,7 +1963,24 @@ Always remember that. 🫂❤️‍🩹
 
       } else {
 
-        playPoetry();
+        poetryPage.classList.add(
+          "play"
+        );
+
+
+        poetryLines.forEach(
+          (line) => {
+
+            if (line) {
+
+              line.classList.add(
+                "show"
+              );
+
+            }
+
+          }
+        );
 
       }
 
