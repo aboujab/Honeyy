@@ -625,12 +625,13 @@
         transform 1.1s ease;
     }
 
-    /* BLACK URDU POETRY ONLY */
+    /* FORCE URDU SHAIri BLACK */
     #sher-one,
     #sher-two,
     #poetry-final,
     #poetry-closing {
       color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
     }
 
     .poetry-page.play .poetry-line.show {
@@ -1204,11 +1205,11 @@ MEH JR QADAM HR RASTY TMHARY SATH HUN✨🫠🫠🫂🥂✨…
           preload="auto"
           playsinline
           webkit-playsinline
-          muted
           aria-hidden="true"
           tabindex="-1"
           style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;">
           <source src="./song.mp4" type="video/mp4">
+          Your browser does not support this media.
         </video>
 
         <div class="flex flex-wrap items-center justify-center gap-3">
@@ -1338,21 +1339,24 @@ Always remember that. 🫂❤️‍🩹
 
         <p
           id="sher-one"
-          class="urdu poetry-line mb-8 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl">
+          class="urdu poetry-line mb-8 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl"
+          style="color:#000000 !important; -webkit-text-fill-color:#000000 !important;">
           میں چاہوں بھی تو وہ الفاظ نہ لکھ پاؤں
           جن میں بیان ہو پائے کہ کتنی محبت ہے تم سے
         </p>
 
         <p
           id="sher-two"
-          class="urdu poetry-line mb-9 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl">
+          class="urdu poetry-line mb-9 whitespace-pre-line text-2xl leading-[2.1] sm:text-3xl"
+          style="color:#000000 !important; -webkit-text-fill-color:#000000 !important;">
           تم پر ختم ہوتی ہیں تمام حدیں محبت کی
           تم سے، تم میں، تم پر ختم ہوتی ہے دنیا میری
         </p>
 
         <p
           id="poetry-final"
-          class="urdu poetry-line whitespace-pre-line text-3xl font-semibold leading-[2.05] sm:text-4xl">
+          class="urdu poetry-line whitespace-pre-line text-3xl font-semibold leading-[2.05] sm:text-4xl"
+          style="color:#000000 !important; -webkit-text-fill-color:#000000 !important;">
           تم میری مسکراہٹ،
           میرا سکون،
           میرا جہاں ہو۔ ❤️‍🩹
@@ -1360,7 +1364,8 @@ Always remember that. 🫂❤️‍🩹
 
         <p
           id="poetry-closing"
-          class="urdu poetry-line mt-10 text-2xl">
+          class="urdu poetry-line mt-10 text-2xl"
+          style="color:#000000 !important; -webkit-text-fill-color:#000000 !important;">
           ہمیشہ خوش رہو، میری دعا ہے۔ 🤍
         </p>
 
@@ -1610,6 +1615,8 @@ Always remember that. 🫂❤️‍🩹
 
         try {
 
+          songAudio.pause();
+          songAudio.currentTime = 0;
           songAudio.muted = false;
           songAudio.volume = 1;
 
